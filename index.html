@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wedding Invitation | Uzma & Zaker</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Poppins', sans-serif; 
+            background-color: #fdfbf7; 
+            color: #333333; 
+            text-align: center;
+            line-height: 1.6;
+        }
+        
+        /* Container Card */
+        .wrapper {
+            max-width: 600px;
+            margin: 30px auto;
+            background: #ffffff;
+            border: 2px solid #d4af37;
+            border-radius: 15px;
+            padding: 30px 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+
+        .bismillah {
+            font-size: 1.1rem;
+            color: #b8860b;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        .host {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #4a4a4a;
+            margin-bottom: 8px;
+        }
+
+        .invitation-text {
+            font-size: 0.95rem;
+            color: #666;
+            margin-bottom: 25px;
+            padding: 0 10px;
+        }
+
+        /* Couple Section */
+        .couple { margin: 20px 0; }
+        .name {
+            font-family: 'Great Vibes', cursive;
+            font-size: 3.5rem;
+            color: #b8860b;
+            margin: 5px 0;
+            line-height: 1.2;
+        }
+        .relation {
+            font-size: 0.85rem;
+            color: #777;
+        }
+        .and {
+            font-size: 1.3rem;
+            color: #d4af37;
+            margin: 10px 0;
+            font-weight: bold;
+        }
+
+        /* Timer Section */
+        .timer-title {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #888;
+            margin-top: 25px;
+        }
+        .timer { 
+            display: flex; 
+            justify-content: center; 
+            gap: 10px; 
+            margin: 15px 0 25px 0; 
+        }
+        .time-box { 
+            background: #fffdf5; 
+            border: 1px solid #e6ca65;
+            padding: 8px 12px; 
+            border-radius: 8px; 
+            min-width: 65px;
+            color: #333; 
+        }
+        .time-box span { 
+            font-size: 1.4rem; 
+            font-weight: bold; 
+            color: #b8860b;
+            display: block; 
+        }
+        .time-box label {
+            font-size: 0.7rem;
+            color: #666;
+        }
+
+        /* Event Cards */
+        .event-card {
+            background: #fffdf8;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            border-left: 4px solid #b8860b;
+            text-align: left;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+        }
+        .event-card h3 { 
+            color: #b8860b; 
+            font-size: 1.1rem;
+            margin-bottom: 10px; 
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .event-details p {
+            margin: 5px 0;
+            font-size: 0.95rem;
+        }
+
+        /* Google Maps Button */
+        .btn-map {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 15px;
+            padding: 12px 22px;
+            background-color: #b8860b;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 25px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            transition: 0.3s;
+            box-shadow: 0 4px 10px rgba(184, 134, 11, 0.2);
+        }
+        .btn-map:hover { 
+            background-color: #966f0d; 
+            transform: translateY(-2px);
+        }
+
+        .footer {
+            margin-top: 25px;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+            font-size: 0.9rem;
+            color: #555;
+        }
+        .footer strong { color: #b8860b; }
+    </style>
+</head>
+<body>
+
+    <div class="wrapper">
+        <div class="bismillah">In the name of Allah, the Most Gracious, the Most Merciful</div>
+        
+        <div class="host">Mrs. & Mr. Shaikh Maheboob</div>
+        <p class="invitation-text">
+            Solicit your gracious presence on the auspicious occasion of the Wedding Ceremony of Our beloved Niece
+        </p>
+
+        <!-- Bride & Groom -->
+        <div class="couple">
+            <div class="name">Uzma</div>
+            <div class="relation">(D/o Shaikh Ayyub Kasimsab, R/o Latur)</div>
+            
+            <div class="and">WITH</div>
+            
+            <div class="name">Zaker</div>
+            <div class="relation">(S/o Sayyed Sadik Ismailsab, R/o Latur)</div>
+        </div>
+
+        <!-- Countdown Timer -->
+        <div class="timer-title">Countdown to Nikah</div>
+        <div class="timer">
+            <div class="time-box"><span id="days">00</span><label>Days</label></div>
+            <div class="time-box"><span id="hours">00</span><label>Hours</label></div>
+            <div class="time-box"><span id="mins">00</span><label>Mins</label></div>
+            <div class="time-box"><span id="secs">00</span><label>Secs</label></div>
+        </div>
+
+        <!-- Event Schedule -->
+        <div class="event-card">
+            <h3>: NIKAH INSHA ALLAH :</h3>
+            <div class="event-details">
+                <p>🗓️ <strong>Date:</strong> Sunday, 11 October 2026</p>
+                <p>🌙 <strong>Islamic Date:</strong> 27th Rabbi-ul-Akhar 1448 Hijri</p>
+                <p>⏰ <strong>Time:</strong> After Namaz-e-Magrib (At 7:10 PM)</p>
+            </div>
+        </div>
+
+        <!-- Venue & Exact Location Link -->
+        <div class="event-card">
+            <h3>: DINNER VENUE :</h3>
+            <div class="event-details">
+                <p>📍 <strong>ZAITUN FUNCTION HALL</strong></p>
+                <p>Ring Road, Latur</p>
+            </div>
+            <!-- Your Exact Google Maps Link -->
+            <a href="Https://share.google/UcyP8l4c7tGnExCR2" target="_blank" class="btn-map">
+                🗺️ Get Directions on Google Maps
+            </a>
+        </div>
+
+        <!-- Compliments -->
+        <div class="footer">
+            <p><strong>WITH BEST COMPLIMENTS FROM:</strong></p>
+            <p>All Shaikh Family, Friends & Relatives</p>
+        </div>
+    </div>
+
+    <script>
+        // Set Nikah Date: 11 Oct 2026 at 7:10 PM IST
+        const weddingDate = new Date("2026-10-11T19:10:00+05:30").getTime();
+
+        const timerInterval = setInterval(() => {
+            const now = new Date().getTime();
+            const distance = weddingDate - now;
+
+            if (distance < 0) {
+                clearInterval(timerInterval);
+                document.querySelector(".timer").innerHTML = "<b style='color:#b8860b;'>The Event Has Taken Place!</b>";
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerText = String(days).padStart(2, '0');
+            document.getElementById("hours").innerText = String(hours).padStart(2, '0');
+            document.getElementById("mins").innerText = String(minutes).padStart(2, '0');
+            document.getElementById("secs").innerText = String(seconds).padStart(2, '0');
+        }, 1000);
+    </script>
+</body>
+</html>
