@@ -1,3 +1,9 @@
+Aapko HTML webpage mein hi sabhi names aur background par video jaisa live, attractive animation chahiye.
+Niche poora HTML, CSS, aur Canvas Animation Code diya gaya hai. Isme:
+ * Live Moving Background: Pure CSS aur Canvas particle animations hain jisse floating gold bokeh, twinkling stars aur glowing effect milta hai (bilkul live video jaisa background).
+ * Text Animations: Uzma, Zaker, aur Arsh Pan Shop glowing text animations, gentle floating movement aur shining shimmer effect ke sath animated hain.
+ * Interactive Doors & Elements: Sabhi elements smoothly load hote hain.
+Aap is poore code ko apni index.html file mein copy-paste karke save kar lein:
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,14 +13,26 @@
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        
+
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: #f7f4ed;
-            color: #333333;
+            background: #0f0c1b;
+            color: #ffffff;
             text-align: center;
-            line-height: 1.6;
-            padding: 10px;
+            overflow-x: hidden;
+            position: relative;
+            min-height: 100vh;
+        }
+
+        /* LIVE ANIMATED CANVAS BACKGROUND */
+        #bgCanvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 0;
+            pointer-events: none;
         }
 
         /* FLOATING MUSIC BUTTON */
@@ -26,107 +44,265 @@
         }
 
         .music-btn {
-            background-color: #b8860b;
+            background: linear-gradient(135deg, #d4af37, #aa771c);
             color: #ffffff;
             border: none;
             border-radius: 50px;
             padding: 10px 18px;
             font-size: 0.85rem;
-            font-weight: 500;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
             cursor: pointer;
             display: flex;
             align-items: center;
             gap: 6px;
         }
 
-        /* MAIN CONTAINER */
+        /* MAIN WRAPPER CARD */
         .wrapper {
-            max-width: 500px;
-            margin: 10px auto;
-            padding: 25px 20px;
-            background: #ffffff;
-            border: 2px solid #e6ca65;
-            border-radius: 12px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            position: relative;
+            z-index: 10;
+            max-width: 480px;
+            margin: 30px auto;
+            padding: 30px 20px;
+            background: rgba(20, 15, 30, 0.75);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(212, 175, 55, 0.6);
+            border-radius: 16px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5), inset 0 0 15px rgba(212, 175, 55, 0.2);
         }
 
-        .bismillah { font-size: 0.75rem; color: #b8860b; margin-bottom: 15px; font-weight: 600; letter-spacing: 1px; }
-        .host { font-size: 0.95rem; font-weight: 600; color: #4a4a4a; margin-bottom: 8px; }
-        .invitation-text { font-size: 0.85rem; color: #666; margin-bottom: 20px; }
-
-        .couple { margin: 15px 0; }
-        .names {
-            font-family: 'Great Vibes', cursive;
-            font-size: 3.5rem;
-            color: #b8860b;
-            margin: 5px 0;
-            line-height: 1.1;
-            display: inline-block;
+        .bismillah {
+            font-size: 0.75rem;
+            color: #ffd700;
+            margin-bottom: 15px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-shadow: 0 0 10px rgba(255,215,0,0.5);
         }
 
-        .relation { font-size: 0.8rem; color: #555; font-weight: 500; }
-        .and { font-size: 1.2rem; color: #e6ca65; margin: 8px 0; font-weight: bold; }
-
-        /* Timer Styling */
-        .timer-title { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: #888; margin-top: 20px; }
-        #timer { display: flex; justify-content: center; gap: 8px; margin: 10px 0 20px 0; }
-        .time-box {
-            background: #fffdf5;
-            border: 1px solid #e6ca65;
-            padding: 8px;
-            border-radius: 8px;
-            min-width: 60px;
+        .host {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #e2d9ca;
+            margin-bottom: 8px;
         }
-        .time-box span { font-size: 1.3rem; font-weight: bold; color: #b8860b; display: block; }
-        .time-box label { font-size: 0.65rem; color: #666; }
 
-        /* Timeline Event Section */
-        .event-card {
-            background: #fffdf6;
-            padding: 15px;
+        .invitation-text {
+            font-size: 0.8rem;
+            color: #ccc;
+            margin-bottom: 20px;
+        }
+
+        /* ANIMATED COUPLE NAMES (Uzma & Zaker) */
+        .couple {
             margin: 20px 0;
-            border-radius: 8px;
-            border-left: 4px solid #b8860b;
+        }
+
+        .animated-name {
+            font-family: 'Great Vibes', cursive;
+            font-size: 3.8rem;
+            display: inline-block;
+            background: linear-gradient(45deg, #ffd700, #fff8dc, #d4af37, #ffe4b5);
+            background-size: 200% auto;
+            color: transparent;
+            -webkit-background-clip: text;
+            background-clip: text;
+            animation: shineText 3s linear infinite, floatText 4s ease-in-out infinite alternate;
+            filter: drop-shadow(0 0 12px rgba(255, 215, 0, 0.6));
+            padding: 0 10px;
+        }
+
+        .name-zaker {
+            animation-delay: 0.5s, 0.5s;
+        }
+
+        @keyframes shineText {
+            to { background-position: 200% center; }
+        }
+
+        @keyframes floatText {
+            0% { transform: translateY(0px) scale(1); }
+            100% { transform: translateY(-8px) scale(1.03); }
+        }
+
+        .relation {
+            font-size: 0.8rem;
+            color: #bbb;
+            margin-top: -5px;
+        }
+
+        .and {
+            font-size: 1.2rem;
+            color: #ffd700;
+            margin: 10px 0;
+            font-weight: bold;
+            letter-spacing: 2px;
+            animation: pulseAnd 2s infinite;
+        }
+
+        @keyframes pulseAnd {
+            0%, 100% { opacity: 0.7; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.15); }
+        }
+
+        /* COUNTDOWN */
+        .timer-title {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #ffd700;
+            margin-top: 25px;
+        }
+
+        #timer {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 12px 0 25px 0;
+        }
+
+        .time-box {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(212, 175, 55, 0.5);
+            padding: 10px;
+            border-radius: 10px;
+            min-width: 65px;
+            backdrop-filter: blur(5px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        .time-box span {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: #ffd700;
+            display: block;
+        }
+
+        .time-box label {
+            font-size: 0.65rem;
+            color: #aaa;
+            text-transform: uppercase;
+        }
+
+        /* EVENT CARD */
+        .event-card {
+            background: rgba(255, 215, 0, 0.05);
+            padding: 18px;
+            margin: 20px 0;
+            border-radius: 12px;
+            border: 1px solid rgba(212, 175, 55, 0.4);
             text-align: left;
         }
 
-        .event-card h3 { color: #b8860b; font-size: 1rem; margin-bottom: 8px; text-transform: uppercase; }
-        .event-card p { font-size: 0.85rem; color: #444; margin: 4px 0; }
+        .event-card h3 {
+            color: #ffd700;
+            font-size: 1rem;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .event-card p {
+            font-size: 0.85rem;
+            color: #ddd;
+            margin: 5px 0;
+        }
 
         .map-btn {
             display: inline-block;
-            margin-top: 10px;
-            background: #b8860b;
+            margin-top: 12px;
+            background: linear-gradient(135deg, #d4af37, #aa771c);
             color: #fff;
-            padding: 8px 16px;
-            border-radius: 5px;
+            padding: 9px 18px;
+            border-radius: 25px;
             text-decoration: none;
             font-size: 0.85rem;
-            font-weight: 500;
+            font-weight: 600;
+            box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
         }
 
-        /* Sponsored Section */
+        /* ANIMATED ARSH PAN SHOP CARD */
         .ad-card {
-            margin-top: 25px;
-            padding: 18px 12px;
-            background: linear-gradient(135deg, #111111, #222222);
-            color: #ffffff;
-            border-radius: 10px;
-            border: 1px solid #ffd700;
+            margin-top: 30px;
+            padding: 22px 15px;
+            background: linear-gradient(145deg, #0d0d0d, #1a1508);
+            border-radius: 14px;
+            border: 2px solid #ffd700;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.25);
         }
-        .ad-title { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; color: #ffd700; margin-bottom: 5px; }
-        .ad-shop-name { font-size: 1.3rem; font-weight: 700; color: #ffd700; margin-bottom: 5px; }
-        .ad-desc { font-size: 0.78rem; color: #ddd; margin-bottom: 12px; }
-        .ad-btn-group { display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; }
-        .ad-contact { background: #ffd700; color: #000; padding: 6px 14px; border-radius: 20px; font-weight: 600; font-size: 0.8rem; text-decoration: none; }
-        .ad-location { background: #333333; color: #ffd700; border: 1px solid #ffd700; padding: 6px 14px; border-radius: 20px; font-weight: 500; font-size: 0.8rem; text-decoration: none; }
+
+        .ad-title {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #aaa;
+        }
+
+        /* Animated Shop Name Text */
+        .animated-shop-name {
+            font-size: 1.6rem;
+            font-weight: 800;
+            margin: 8px 0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            background: linear-gradient(90deg, #ff4500, #ffd700, #00ffcc, #ffd700, #ff4500);
+            background-size: 300% auto;
+            color: transparent;
+            -webkit-background-clip: text;
+            background-clip: text;
+            animation: shineText 4s linear infinite, glowPulse 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glowPulse {
+            0% { filter: drop-shadow(0 0 5px rgba(255, 215, 0, 0.5)); }
+            100% { filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.9)); }
+        }
+
+        .ad-desc {
+            font-size: 0.8rem;
+            color: #ddd;
+            margin-bottom: 15px;
+        }
+
+        .ad-btn-group {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .ad-contact {
+            background: #ffd700;
+            color: #000;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.8rem;
+            text-decoration: none;
+        }
+
+        .ad-location {
+            background: transparent;
+            color: #ffd700;
+            border: 1px solid #ffd700;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.8rem;
+            text-decoration: none;
+        }
     </style>
 </head>
 <body>
 
-    <!-- Floating Audio Control -->
+    <!-- LIVE BACKGROUND CANVAS -->
+    <canvas id="bgCanvas"></canvas>
+
+    <!-- FLOATING MUSIC BUTTON -->
     <div class="music-btn-container">
         <button class="music-btn" id="musicToggle">
             <span id="musicIcon">🎵</span> <span id="musicText">Play Music</span>
@@ -137,19 +313,21 @@
         <source src="song.mp3" type="audio/mpeg">
     </audio>
 
+    <!-- INVITATION MAIN WRAPPER -->
     <div class="wrapper">
         <div class="bismillah">IN THE NAME OF ALLAH, THE MOST GRACIOUS, THE MOST MERCIFUL</div>
         
         <div class="host">MRS. & MR. SHAIKH MAHEBUBSAB KASIMSAB</div>
         <p class="invitation-text">Solicit your gracious presence on the auspicious occasion of the Wedding Ceremony of his beloved daughter</p>
 
+        <!-- ANIMATED NAMES SECTION -->
         <div class="couple">
-            <div class="names">Uzma</div>
-            <br>
+            <div class="animated-name">Uzma</div>
             <div class="relation">(D/o Shaikh Ayyub Kasimsab R/o Latur)</div>
+            
             <div class="and">WITH</div>
-            <div class="names">Zaker</div>
-            <br>
+            
+            <div class="animated-name name-zaker">Zaker</div>
             <div class="relation">(S/o Sayyed Sadik Ismailsab R/o Latur)</div>
         </div>
 
@@ -170,23 +348,84 @@
             <a href="https://maps.google.com/?q=Zaitun+Function+Hall+Latur" target="_blank" class="map-btn">📍 Get Function Hall Location</a>
         </div>
 
-        <!-- Arsh Pan Shop Promotional Section -->
+        <!-- ANIMATED SPONSORED SECTION -->
         <div class="ad-card">
             <div class="ad-title">Sponsored By</div>
-            <div class="ad-shop-name">Arsh Pan Shop</div>
+            <div class="animated-shop-name">Arsh Pan Shop</div>
             <div class="ad-desc">Special Sweet Pan & Royal Masala Pan</div>
             <div class="ad-btn-group">
                 <a href="tel:8999698989" class="ad-contact">📞 Call: 8999698989</a>
-                <a href="https://maps.google.com/?q=Arsh+Pan+Shop+Latur" target="_blank" class="ad-location">📍 Shop Location</a>
+                <a href="https://maps.google.com/?q=Arsh+Pan+Shop+Latur" target="_blank" class="ad-location">📍 Location</a>
             </div>
         </div>
     </div>
 
+    <!-- LIVE ANIMATION SCRIPTS -->
     <script>
-        // Music Toggle Script
+        // 1. LIVE CANVAS PARTICLE BACKGROUND (Gold Sparkling Video-like Effect)
+        const canvas = document.getElementById('bgCanvas');
+        const ctx = canvas.getContext('2d');
+
+        let particlesArray = [];
+        const numberOfParticles = 75;
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 3 + 1;
+                this.speedY = Math.random() * 0.8 + 0.2;
+                this.speedX = (Math.random() - 0.5) * 0.4;
+                this.opacity = Math.random() * 0.7 + 0.3;
+                this.color = `rgba(255, 215, 0, ${this.opacity})`;
+            }
+            update() {
+                this.y -= this.speedY;
+                this.x += this.speedX;
+                if (this.y < 0) {
+                    this.y = canvas.height;
+                    this.x = Math.random() * canvas.width;
+                }
+            }
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fillStyle = this.color;
+                ctx.shadowBlur = 10;
+                ctx.shadowColor = '#ffd700';
+                ctx.fill();
+            }
+        }
+
+        function initParticles() {
+            particlesArray = [];
+            for (let i = 0; i < numberOfParticles; i++) {
+                particlesArray.push(new Particle());
+            }
+        }
+        initParticles();
+
+        function animateParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            for (let i = 0; i < particlesArray.length; i++) {
+                particlesArray[i].update();
+                particlesArray[i].draw();
+            }
+            requestAnimationFrame(animateParticles);
+        }
+        animateParticles();
+
+        // 2. MUSIC TOGGLE
         const music = document.getElementById('bgMusic');
-        const btn = document.getElementById('musicToggle');
-        btn.addEventListener('click', () => {
+        const musicBtn = document.getElementById('musicToggle');
+        musicBtn.addEventListener('click', () => {
             if (music.paused) {
                 music.play().then(() => {
                     document.getElementById('musicIcon').textContent = '⏸️';
@@ -199,7 +438,7 @@
             }
         });
 
-        // Countdown Timer Script
+        // 3. COUNTDOWN TIMER
         const targetDate = new Date(2026, 9, 11, 18, 30, 0).getTime();
 
         function updateTimer() {
@@ -207,7 +446,7 @@
             const difference = targetDate - now;
 
             if (difference <= 0) {
-                document.getElementById("timer").innerHTML = "<b>The Auspicious Moment Has Arrived!</b>";
+                document.getElementById("timer").innerHTML = "<b style='color:#ffd700;'>The Auspicious Moment Has Arrived!</b>";
                 return;
             }
 
@@ -227,3 +466,4 @@
     </script>
 </body>
 </html>
+
