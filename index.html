@@ -75,25 +75,49 @@
         .host { font-size: 1rem; font-weight: 600; color: #4a4a4a; margin-bottom: 8px; }
         .invitation-text { font-size: 0.85rem; color: #666; margin-bottom: 25px; padding: 0 10px; }
 
-        /* Couple Names with Shimmer/Glow Animation */
-        .couple { margin: 15px 0; }
+        /* Dulha aur Dulhan (Couple) Special Animation Section */
+        .couple { margin: 20px 0; }
+        
         .names {
             font-family: 'Great Vibes', cursive;
-            font-size: 3.5rem;
+            font-size: 3.8rem;
             color: #b8860b;
             margin: 5px 0;
             line-height: 1.2;
-            text-shadow: 0 0 10px rgba(184, 134, 11, 0.2);
-            animation: goldGlow 3s infinite alternate;
+            display: inline-block;
+            animation: nameEntry 1.8s ease-out forwards, goldGlow 3s infinite alternate 1.8s, floatBounce 4s ease-in-out infinite 1.8s;
         }
 
+        /* Entry Zoom/Fade Effect */
+        @keyframes nameEntry {
+            0% {
+                opacity: 0;
+                transform: scale(0.5) translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        /* Golden Shimmer Glow */
         @keyframes goldGlow {
-            0% { text-shadow: 0 0 5px rgba(184, 134, 11, 0.2); }
-            100% { text-shadow: 0 0 20px rgba(230, 202, 101, 0.8); }
+            0% { 
+                text-shadow: 0 0 5px rgba(184, 134, 11, 0.3), 0 0 10px rgba(230, 202, 101, 0.3); 
+            }
+            100% { 
+                text-shadow: 0 0 15px rgba(184, 134, 11, 0.8), 0 0 30px rgba(230, 202, 101, 0.9), 0 0 45px rgba(255, 215, 0, 0.6); 
+            }
+        }
+
+        /* Subtle Floating Movement */
+        @keyframes floatBounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-6px); }
         }
 
         .relation { font-size: 0.85rem; color: #777; }
-        .and { font-size: 1.2rem; color: #e6ca65; margin: 10px 0; font-weight: bold; }
+        .and { font-size: 1.3rem; color: #e6ca65; margin: 12px 0; font-weight: bold; letter-spacing: 2px; }
 
         /* Timer Styling */
         .timer-title { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: #888; margin-top: 25px; }
@@ -130,7 +154,7 @@
         .event-card h3 { color: #b8860b; font-size: 1.1rem; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 1px; }
         .event-details p { margin: 6px 0; font-size: 0.9rem; color: #444; }
 
-        /* Location Button */
+        /* Buttons Styling */
         .map-btn {
             display: inline-block;
             margin-top: 10px;
@@ -158,7 +182,9 @@
         .ad-title { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; color: #ffd700; margin-bottom: 5px; }
         .ad-shop-name { font-size: 1.3rem; font-weight: 600; color: #fff; margin-bottom: 5px; }
         .ad-desc { font-size: 0.8rem; color: #ddd; margin-bottom: 12px; }
-        .ad-contact { display: inline-block; background: #ffd700; color: #000; padding: 7px 18px; border-radius: 20px; font-weight: 600; font-size: 0.85rem; text-decoration: none; }
+        .ad-buttons { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
+        .ad-contact { background: #ffd700; color: #000; padding: 7px 16px; border-radius: 20px; font-weight: 600; font-size: 0.85rem; text-decoration: none; }
+        .ad-map { background: transparent; border: 1px solid #ffd700; color: #ffd700; padding: 7px 16px; border-radius: 20px; font-weight: 500; font-size: 0.85rem; text-decoration: none; }
     </style>
 </head>
 <body>
@@ -203,7 +229,7 @@
                 <p><strong>Islamic Date:</strong> 29th Rabi-ul-Akhir 1448 AH</p>
                 <p><strong>Time:</strong> After Namaz-e-Magrib (At 6:30 PM)</p>
                 <p><strong>Venue:</strong> Zaitun Function Hall, Latur.</p>
-                <a href="https://maps.google.com/?q=Zaitun+Function+Hall+Latur" target="_blank" class="map-btn">📍 Get Location on Google Maps</a>
+                <a href="https://maps.google.com/?q=Zaitun+Function+Hall+Latur" target="_blank" class="map-btn">📍 Venue Location on Google Maps</a>
             </div>
         </div>
 
@@ -212,7 +238,10 @@
             <div class="ad-title">Sponsored By</div>
             <div class="ad-shop-name">Arsh Pan Shop</div>
             <div class="ad-desc">Special Sweet Pan, Royal Masala Pan & Catering Services for Weddings</div>
-            <a href="tel:8999698989" class="ad-contact">📞 Call: 8999698989</a>
+            <div class="ad-buttons">
+                <a href="tel:8999698989" class="ad-contact">📞 Call: 8999698989</a>
+                <a href="https://maps.google.com/?q=Arsh+Pan+Shop+Latur" target="_blank" class="ad-map">📍 Shop Location</a>
+            </div>
         </div>
     </div>
 
@@ -253,14 +282,41 @@
 
             const days = Math.floor(difference / (1000 * 60 * 60 * 24));
             const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+            const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 6Main ne dono cheezon ko perfectly update kar diya hai:
 
-            document.getElementById("days").innerText = days < 10 ? "0" + days : days;
-            document.getElementById("hours").innerText = hours < 10 ? "0" + hours : hours;
-            document.getElementById("minutes").innerText = minutes < 10 ? "0" + minutes : minutes;
-            document.getElementById("seconds").innerText = seconds < 10 ? "0" + seconds : seconds;
-        }, 1000);
-    </script>
-</body>
-</html>
+1. **Arsh Pan Shop Google Maps Location:** Promoted card mein "📍 Shop Location" ka button add kar diya hai jisse guest shop ki exact location Google Maps par dekh sakein.
+2. **Dulhan (Uzma) aur Dulha (Zaker) ke Naam Ka Naya Shiny Animation:** Names ke liye ab alag se **Gold Sparkle Pulse + Scale Animation** add kar diya gaya hai, jisse unke naam screen par glowing/zoom effect ke sath zyaada attractive aur shahi dikhenge.
+
+---
+
+### Step 1: Copy Updated Code
+
+Niche diye gaye code ko copy kar lijiye:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wedding Invitation | Uzma & Zaker</title>
+    <link href="[https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600&display=swap](https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600&display=swap)" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #fdfbf7;
+            color: #333333;
+            text-align: center;
+            line-height: 1.6;
+            padding-bottom: 60px;
+            overflow-x: hidden;
+        }
+
+        /* Floating Music Button with Pulse Animation */
+        .music-btn-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000
