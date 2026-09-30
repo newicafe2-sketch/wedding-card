@@ -163,7 +163,28 @@
             box-shadow: 0 4px 12px rgba(0,0,0,0.15);
         }
         .ad-title { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; color: #ffd700; margin-bottom: 5px; }
-        .ad-shop-name { font-size: 1.3rem; font-weight: 600; color: #fff; margin-bottom: 5px; }
+        
+        /* Animated Arsh Pan Shop Title */
+        .ad-shop-name { 
+            font-size: 1.4rem; 
+            font-weight: 700; 
+            color: #ffd700; 
+            margin-bottom: 5px;
+            display: inline-block;
+            animation: shopGlow 2s infinite alternate;
+        }
+
+        @keyframes shopGlow {
+            0% {
+                text-shadow: 0 0 3px #ffd700, 0 0 6px #ffd700;
+                transform: scale(1);
+            }
+            100% {
+                text-shadow: 0 0 10px #ffffff, 0 0 20px #ffd700, 0 0 30px #ffd700;
+                transform: scale(1.05);
+            }
+        }
+
         .ad-desc { font-size: 0.8rem; color: #ddd; margin-bottom: 15px; }
         .ad-btn-group { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
         .ad-contact { background: #ffd700; color: #000; padding: 7px 16px; border-radius: 20px; font-weight: 600; font-size: 0.85rem; text-decoration: none; }
@@ -186,7 +207,7 @@
     <div class="wrapper">
         <div class="bismillah">IN THE NAME OF ALLAH, THE MOST GRACIOUS, THE MOST MERCIFUL</div>
         
-        <div class="host">MRS. & MR. SHAIKH AYYUB KASIMSAB</div>
+        <div class="host">MRS. & MR. SHAIKH MAHEBUBSAB KASIMSAB</div>
         <p class="invitation-text">Solicit your gracious presence on the auspicious occasion of the Wedding Ceremony of his beloved daughter</p>
 
         <div class="couple">
@@ -220,7 +241,7 @@
         <div class="ad-card">
             <div class="ad-title">Sponsored By</div>
             <div class="ad-shop-name">Arsh Pan Shop</div>
-            <div class="ad-desc">Special Sweet Pan, Royal Masala Pan & Catering Services for Weddings</div>
+            <div class="ad-desc">Special Sweet Pan & Royal Masala Pan</div>
             <div class="ad-btn-group">
                 <a href="tel:8999698989" class="ad-contact">📞 Call: 8999698989</a>
                 <a href="https://maps.google.com/?q=Arsh+Pan+Shop+Latur" target="_blank" class="ad-location">📍 Shop Location</a>
