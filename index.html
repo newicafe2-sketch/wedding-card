@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wedding Invitation | Uzma & Zaker</title>
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Confetti Library for Star Sparks Animation -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -164,6 +166,19 @@
             overflow: hidden;
             border: 2px solid #ffd700;
             box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+            transition: all 0.5s ease;
+        }
+
+        /* Class added after revealing for glowing animation */
+        .scratch-container.revealed {
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.9);
+            border-color: #ffffff;
+            animation: pulseGlow 1.5s infinite alternate;
+        }
+
+        @keyframes pulseGlow {
+            0% { transform: scale(1); box-shadow: 0 0 20px #ffd700; }
+            100% { transform: scale(1.04); box-shadow: 0 0 35px #ffffff, 0 0 15px #ffd700; }
         }
 
         /* Underneath Revealed Content */
@@ -183,14 +198,15 @@
         }
 
         .scratch-reveal-text .date-main {
-            font-size: 1.2rem;
+            font-size: 1.25rem;
             font-weight: 700;
             letter-spacing: 1px;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
         }
 
         .scratch-reveal-text .date-sub {
             font-size: 0.75rem;
-            color: #ddd;
+            color: #fff;
         }
 
         /* Overlay Canvas for Scratching */
@@ -203,6 +219,7 @@
             z-index: 2;
             cursor: pointer;
             touch-action: none;
+            transition: opacity 0.5s ease;
         }
 
         /* COUNTDOWN TIMER */
@@ -391,8 +408,8 @@
 
         <!-- SCRATCH CARD TO REVEAL DATE -->
         <div class="scratch-section">
-            <div class="scratch-instruction">✨ Scratch to reveal date ✨</div>
-            <div class="scratch-container">
+            <div class="scratch-instruction" id="scratchInstruction">✨ Scratch to reveal date ✨</div>
+            <div class="scratch-container" id="scratchBox">
                 <div class="scratch-reveal-text">
                     <div class="date-main">OCTOBER 11, 2026</div>
                     <div class="date-sub">Sunday, 6:30 PM Onwards</div>
@@ -432,17 +449,18 @@
 
     <!-- SCRIPTS -->
     <script>
-        // 1. SCRATCH CARD SCRIPT
+        // 1. SCRATCH CARD SCRIPT WITH STAR / CONFETTI ANIMATION
         const sCanvas = document.getElementById('scratchCanvas');
         const sCtx = sCanvas.getContext('2d');
+        const scratchBox = document.getElementById('scratchBox');
+        const scratchInstruction = document.getElementById('scratchInstruction');
         let isScratching = false;
+        let isAlreadyRevealed = false;
 
-        // Draw Gold Scratch Layer
         function initScratchCard() {
             sCtx.fillStyle = '#d4af37';
             sCtx.fillRect(0, 0, sCanvas.width, sCanvas.height);
             
-            // Add decorative text on scratch layer
             sCtx.fillStyle = '#000000';
             sCtx.font = 'bold 13px Poppins, sans-serif';
             sCtx.textAlign = 'center';
@@ -451,16 +469,82 @@
 
         initScratchCard();
 
+        function checkScratchPercentage() {
+            if (isAlreadyRevealed) return;
+
+            const imageData = sCtx.getImageData(0, 0, sCanvas.width, sCanvas.height);
+            const pixels = imageData.data;
+            let transparentPixels = 0;
+
+            for (let i = 3; i < pixels.length; i += 4) {
+                if (pixels[i] === 0) transparentPixels++;
+            }
+
+            const percentage = (transparentPixels / (pixels.length / 4)) * 100;
+
+            // When 45% is scratched, trigger reveal animation
+            if (percentage > 45) {
+                isAlreadyRevealed = true;
+                sCanvas.style.opacity = '0';
+                setTimeout(() => sCanvas.style.display = 'none', 500);
+
+                scratchBox.classList.add('revealed');
+                scratchInstruction.innerHTML = '🎉 Date Revealed! 🎉';
+
+                // TRIGGER STAR CONFETTI SPARKS
+                triggerStarExplosion();
+            }
+        }
+
+        function triggerStarExplosion() {
+            // Golden & White Star Fireworks
+            var count = 200;
+            var defaults = {
+                origin: { y: 0.6 }
+            };
+
+            function fire(particleRatio, opts) {
+                confetti(Object.assign({}, defaults, opts, {
+                    particleCount: Math.floor(count * particleRatio)
+                }));
+            }
+
+            fire(0.25, {
+                spread: 26,
+                startVelocity: 55,
+                shapes: ['star'],
+                colors: ['#ffd700', '#ffffff']
+            });
+            fire(0.2, {
+                spread: 60,
+                shapes: ['star'],
+                colors: ['#ffd700', '#ff8c00', '#ffffff']
+            });
+            fire(0.35, {
+                spread: 100,
+                decay: 0.91,
+                scalar: 0.8
+            });
+            fire(0.1, {
+                spread: 120,
+                startVelocity: 25,
+                decay: 0.92,
+                colors: ['#ffd700', '#ffffff']
+            });
+        }
+
         function scratch(e) {
-            if (!isScratching) return;
+            if (!isScratching || isAlreadyRevealed) return;
             const rect = sCanvas.getBoundingClientRect();
             const x = (e.clientX || (e.touches && e.touches[0].clientX)) - rect.left;
             const y = (e.clientY || (e.touches && e.touches[0].clientY)) - rect.top;
 
             sCtx.globalCompositeOperation = 'destination-out';
             sCtx.beginPath();
-            sCtx.arc(x, y, 16, 0, Math.PI * 2);
+            sCtx.arc(x, y, 18, 0, Math.PI * 2);
             sCtx.fill();
+
+            checkScratchPercentage();
         }
 
         sCanvas.addEventListener('mousedown', (e) => { isScratching = true; scratch(e); });
@@ -537,7 +621,7 @@
         musicBtn.addEventListener('click', () => {
             if (music.paused) {
                 music.play().then(() => {
-                    document.getElementById('musicIcon').textContent = '⏸️️';
+                    document.getElementById('musicIcon').textContent = '⏸';
                     document.getElementById('musicText').textContent = 'Pause';
                 });
             } else {
