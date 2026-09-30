@@ -7,15 +7,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { 
-            font-family: 'Poppins', sans-serif; 
-            background-color: #fdfbf7; 
-            color: #333333; 
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #fdfbf7;
+            color: #333333;
             text-align: center;
             line-height: 1.6;
-            padding-bottom: 80px;
-        } 
-        
+            padding-bottom: 60px;
+            overflow-x: hidden;
+        }
+
         /* Floating Music Button */
         .music-btn-container {
             position: fixed;
@@ -23,6 +25,7 @@
             right: 20px;
             z-index: 1000;
         }
+
         .music-btn {
             background-color: #b8860b;
             color: #ffffff;
@@ -30,210 +33,218 @@
             border-radius: 50px;
             padding: 12px 20px;
             font-size: 0.9rem;
-            font-weight: 600;
+            font-weight: 500;
             box-shadow: 0 4px 15px rgba(0,0,0,0.2);
             cursor: pointer;
             display: flex;
             align-items: center;
             gap: 8px;
+            animation: pulse-btn 2s infinite;
         }
 
-        /* Container Card */
+        @keyframes pulse-btn {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        /* Container & Animations */
         .wrapper {
             max-width: 600px;
-            margin: 30px auto;
+            margin: 20px auto;
+            padding: 25px 20px;
             background: #ffffff;
-            border: 2px solid #d4af37;
-            border-radius: 15px;
-            padding: 30px 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            border: 2px solid #e6ca65;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            animation: slideUp 1.2s ease-out forwards;
         }
 
-        .bismillah { font-size: 1.1rem; color: #b8860b; margin-bottom: 15px; font-weight: 500; }
-        .host { font-size: 1.1rem; font-weight: 600; color: #4a4a4a; margin-bottom: 8px; }
-        .invitation-text { font-size: 0.95rem; color: #666; margin-bottom: 25px; padding: 0 10px; }
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
-        /* Couple Section */
-        .couple { margin: 20px 0; }
-        .name { font-family: 'Great Vibes', cursive; font-size: 3.5rem; color: #b8860b; margin: 5px 0; line-height: 1.2; }
-        .relation { font-size: 0.85rem; color: #777; }
-        .and { font-size: 1.3rem; color: #d4af37; margin: 10px 0; font-weight: bold; }
+        .bismillah { font-size: 0.7rem; color: #b8860b; margin-bottom: 15px; font-weight: 500; }
+        .host { font-size: 1rem; font-weight: 600; color: #4a4a4a; margin-bottom: 8px; }
+        .invitation-text { font-size: 0.85rem; color: #666; margin-bottom: 25px; padding: 0 10px; }
 
-        /* Timer Section */
-        .timer-title { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; color: #888; margin-top: 25px; }
-        .timer { display: flex; justify-content: center; gap: 10px; margin: 15px 0 25px 0; }
-        .time-box { background: #fffdf5; border: 1px solid #e6ca65; padding: 8px 12px; border-radius: 8px; min-width: 65px; color: #333; }
+        /* Couple Names with Shimmer Effect */
+        .couple { margin: 15px 0; }
+        .names {
+            font-family: 'Great Vibes', cursive;
+            font-size: 3.5rem;
+            color: #b8860b;
+            margin: 5px 0;
+            line-height: 1.2;
+            text-shadow: 0 0 10px rgba(184, 134, 11, 0.2);
+            animation: goldGlow 3s infinite alternate;
+        }
+
+        @keyframes goldGlow {
+            0% { text-shadow: 0 0 5px rgba(184, 134, 11, 0.2); }
+            100% { text-shadow: 0 0 20px rgba(230, 202, 101, 0.8); }
+        }
+
+        .relation { font-size: 0.9rem; color: #777; }
+        .and { font-size: 1.2rem; color: #e6ca65; margin: 10px 0; font-weight: bold; }
+
+        /* Timer Styling */
+        .timer-title { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: #888; margin-top: 25px; }
+        #timer { display: flex; justify-content: center; gap: 10px; margin: 15px 0 25px 0; }
+        .time-box {
+            background: #fffdf5;
+            border: 1px solid #e6ca65;
+            padding: 10px;
+            border-radius: 8px;
+            min-width: 65px;
+            transition: transform 0.3s;
+        }
+        .time-box:hover { transform: translateY(-5px); }
         .time-box span { font-size: 1.4rem; font-weight: bold; color: #b8860b; display: block; }
         .time-box label { font-size: 0.7rem; color: #666; }
 
-        /* Event Cards */
+        /* Event Details Card */
         .event-card {
-            background: #fffdf8;
+            background: #fffdf6;
             padding: 20px;
             margin: 20px 0;
-            border-radius: 10px;
+            border-radius: 8px;
             border-left: 4px solid #b8860b;
             text-align: left;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+            box-shadow: 2px 2px 8px rgba(0,0,0,0.03);
+            animation: fadeIn 2s ease-in;
         }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
         .event-card h3 { color: #b8860b; font-size: 1.1rem; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px; }
-        .event-details p { margin: 5px 0; font-size: 0.95rem; }
+        .event-details p { margin: 5px 0; font-size: 0.9rem; }
 
-        /* Shop Ad Card Styling */
-        .shop-card {
-            background: linear-gradient(135deg, #fffdf2, #ffffff);
-            border: 2px dashed #b8860b;
-            border-radius: 12px;
-            padding: 20px;
-            margin: 30px 0 20px 0;
-            text-align: center;
-        }
-        .shop-card h3 { color: #b8860b; font-size: 1.1rem; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 1px; }
-        .shop-name { font-size: 1.5rem; font-weight: bold; color: #222; margin-bottom: 8px; }
-        .shop-details { font-size: 0.95rem; color: #555; margin-bottom: 15px; }
-
-        /* Buttons */
-        .btn-map, .btn-call {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            margin: 5px;
-            padding: 10px 18px;
-            background-color: #b8860b;
+        /* Ad Card Section */
+        .ad-card {
+            margin-top: 30px;
+            padding: 15px;
+            background: linear-gradient(135deg, #111111, #222222);
             color: #ffffff;
-            text-decoration: none;
-            border-radius: 25px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            transition: 0.3s;
+            border-radius: 10px;
+            border: 1px solid #ffd700;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
         }
-        .btn-call { background-color: #25d366; } /* Call/WhatsApp Green */
-        .btn-map:hover, .btn-call:hover { opacity: 0.9; }
-
-        .footer { margin-top: 25px; padding-top: 15px; border-top: 1px solid #eee; font-size: 0.9rem; color: #555; }
-        .footer strong { color: #b8860b; }
+        .ad-title { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; color: #ffd700; margin-bottom: 5px; }
+        .ad-shop-name { font-size: 1.3rem; font-weight: 600; color: #fff; margin-bottom: 5px; }
+        .ad-desc { font-size: 0.8rem; color: #ddd; margin-bottom: 10px; }
+        .ad-contact { display: inline-block; background: #ffd700; color: #000; padding: 6px 15px; border-radius: 20px; font-weight: 600; font-size: 0.85rem; text-decoration: none; }
     </style>
 </head>
 <body>
 
-    <!-- Floating Audio Player Button -->
+    <!-- Floating Audio Control -->
     <div class="music-btn-container">
-        <button class="music-btn" id="musicToggle" onclick="toggleMusic()">🎵 Play Music</button>
+        <button class="music-btn" id="musicToggle">
+            <span id="musicIcon">🎵</span> <span id="musicText">Play Music</span>
+        </button>
     </div>
 
-    <!-- Audio File -->
-    <audio id="bgMusic" loop>
+    <audio id="bgMusic" loop preload="auto">
         <source src="song.mp3" type="audio/mpeg">
     </audio>
 
     <div class="wrapper">
-        <div class="bismillah">In the name of Allah, the Most Gracious, the Most Merciful</div>
+        <div class="bismillah">IN THE NAME OF ALLAH, THE MOST GRACIOUS, THE MOST MERCIFUL</div>
         
-        <div class="host">Mrs. & Mr. Shaikh Maheboob</div>
-        <p class="invitation-text">
-            Solicit your gracious presence on the auspicious occasion of the Wedding Ceremony of Our beloved Niece
-        </p>
+        <div class="host">MRS. & MR. SHAIKH MAHBOOB</div>
+        <p class="invitation-text">Solicit your gracious presence on the auspicious occasion of the Wedding Ceremony of his beloved daughter</p>
 
-        <!-- Bride & Groom -->
         <div class="couple">
-            <div class="name">Uzma</div>
-            <div class="relation">(D/o Shaikh Ayyub Kasimsab, R/o Latur)</div>
-            
+            <div class="names">Uzma</div>
+            <div class="relation">(D/o Shaikh Mahboob Pasha)</div>
             <div class="and">WITH</div>
-            
-            <div class="name">Zaker</div>
-            <div class="relation">(S/o Sayyed Sadik Ismailsab, R/o Latur)</div>
+            <div class="names">Zaker</div>
+            <div class="relation">(S/o Shaikh Basheer Ahemad)</div>
         </div>
 
-        <!-- Countdown Timer -->
-        <div class="timer-title">Countdown to Nikah</div>
-        <div class="timer">
+        <div class="timer-title">COUNTDOWN TO NIKAH</div>
+        <div id="timer">
             <div class="time-box"><span id="days">00</span><label>Days</label></div>
             <div class="time-box"><span id="hours">00</span><label>Hours</label></div>
-            <div class="time-box"><span id="mins">00</span><label>Mins</label></div>
-            <div class="time-box"><span id="secs">00</span><label>Secs</label></div>
+            <div class="time-box"><span id="minutes">00</span><label>Mins</label></div>
+            <div class="time-box"><span id="seconds">00</span><label>Secs</label></div>
         </div>
 
-        <!-- Event Schedule -->
         <div class="event-card">
-            <h3>: NIKAH INSHA ALLAH :</h3>
+            <h3>Nikah Insha Allah</h3>
             <div class="event-details">
-                <p>🗓️ <strong>Date:</strong> Sunday, 11 October 2026</p>
-                <p>🌙 <strong>Islamic Date:</strong> 27th Rabbi-ul-Akhar 1448 Hijri</p>
-                <p>⏰ <strong>Time:</strong> After Namaz-e-Magrib (At 7:10 PM)</p>
+                <p><strong>Date:</strong> Sunday, 11 October 2026</p>
+                <p><strong>Islamic Date:</strong> 29th Rabi-ul-Akhir 1448 AH</p>
+                <p><strong>Time:</strong> After Namaz-e-Magrib (At 6:30 PM)</p>
+                <p><strong>Venue:</strong> Zaitun Function Hall, Latur.</p>
             </div>
         </div>
 
-        <!-- Venue & Location -->
-        <div class="event-card">
-            <h3>: DINNER VENUE :</h3>
-            <div class="event-details">
-                <p>📍 <strong>ZAITUN FUNCTION HALL</strong></p>
-                <p>Ring Road, Latur</p>
-            </div>
-            <a href="Https://share.google/UcyP8l4c7tGnExCR2" target="_blank" class="btn-map">
-                🗺️ Get Directions on Google Maps
-            </a>
-        </div>
-
-        <!-- SHOP / BUSINESS ADVERTISEMENT CARD -->
-        <div class="shop-card">
-            <h3>✨ Our Shop ✨</h3>
-            <div class="shop-name">Arsh Pan Shop</div>
-            <div class="shop-details">
-                <p>📍 <strong>Address:</strong> Main Bus Stand, Latur</p>
-                <p>📞 <strong>Mobile:</strong> +91 8999698989</p>
-            </div>
-            
-            <!-- Shop Location & Call Buttons -->
-            <a href="https://share.google/CxAIO1aYqFtWSoCBq" target="_blank" class="btn-map">📍 Shop Location Map</a>
-            <a href="tel:+918999698989" class="btn-call">📞 Call Us Now</a>
-        </div>
-
-        <!-- Compliments -->
-        <div class="footer">
-            <p><strong>WITH BEST COMPLIMENTS FROM:</strong></p>
-            <p>All Shaikh Family, Friends & Relatives</p>
+        <!-- Arsh Pan Shop Promotional Section -->
+        <div class="ad-card">
+            <div class="ad-title">Sponsored By</div>
+            <div class="ad-shop-name">Arsh Pan Shop</div>
+            <div class="ad-desc">Special Sweet Pan, Royal Masala Pan & Catering Services for Weddings</div>
+            <a href="tel:8999698989" class="ad-contact">📞 Call: 8999698989</a>
         </div>
     </div>
 
     <script>
-        // Music Play/Pause Functionality
-        const audio = document.getElementById("bgMusic");
-        const musicBtn = document.getElementById("musicToggle");
+        // Audio Toggle Script
+        const music = document.getElementById('bgMusic');
+        const btn = document.getElementById('musicToggle');
+        const musicIcon = document.getElementById('musicIcon');
+        const musicText = document.getElementById('musicText');
 
-        function toggleMusic() {
-            if (audio.paused) {
-                audio.play();
-                musicBtn.innerHTML = "⏸️ Pause Music";
+        btn.addEventListener('click', () => {
+            if (music.paused) {
+                music.play().then(() => {
+                    musicIcon.textContent = '⏸️';
+                    musicText.textContent = 'Pause Music';
+                }).catch(err => {
+                    alert("Click again to play audio");
+                });
             } else {
-                audio.pause();
-                musicBtn.innerHTML = "🎵 Play Music";
+                music.pause();
+                musicIcon.textContent = '🎵';
+                musicText.textContent = 'Play Music';
             }
-        }
+        });
 
-        // Countdown Timer Script
-        const weddingDate = new Date("2026-10-11T19:10:00+05:30").getTime();
+        // Countdown Timer Script (Target: 11 Oct 2026)
+        const targetDate = new Date("October 11, 2026 18:30:00").getTime();
 
-        setInterval(() => {
+        const countdown = setInterval(() => {
             const now = new Date().getTime();
-            const distance = weddingDate - now;
+            const difference = targetDate - now;
 
-            if (distance < 0) {
-                document.querySelector(".timer").innerHTML = "<b style='color:#b8860b;'>The Event Has Taken Place!</b>";
+            if (difference < 0) {
+                clearInterval(countdown);
+                document.getElementById("timer").innerHTML = "<b>The Auspicious Moment Has Arrived!</b>";
                 return;
             }
 
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((difference % (1000 * 60)) / 1000);
 
-            document.getElementById("days").innerText = String(days).padStart(2, '0');
-            document.getElementById("hours").innerText = String(hours).padStart(2, '0');
-            document.getElementById("mins").innerText = String(minutes).padStart(2, '0');
-            document.getElementById("secs").innerText = String(seconds).padStart(2, '0');
+            document.getElementById("days").innerText = days < 10 ? "0" + days : days;
+            document.getElementById("hours").innerText = hours < 10 ? "0" + hours : hours;
+            document.getElementById("minutes").innerText = minutes < 10 ? "0" + minutes : minutes;
+            document.getElementById("seconds").innerText = seconds < 10 ? "0" + seconds : seconds;
         }, 1000);
     </script>
 </body>
