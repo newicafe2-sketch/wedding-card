@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,7 +18,7 @@
             overflow-x: hidden;
         }
 
-        /* Floating Music Button */
+        /* Floating Music Button with Pulse Animation */
         .music-btn-container {
             position: fixed;
             bottom: 20px;
@@ -48,7 +48,7 @@
             100% { transform: scale(1); }
         }
 
-        /* Container & Animations */
+        /* Container Slide Up Entry Animation */
         .wrapper {
             max-width: 600px;
             margin: 20px auto;
@@ -71,11 +71,11 @@
             }
         }
 
-        .bismillah { font-size: 0.7rem; color: #b8860b; margin-bottom: 15px; font-weight: 500; }
+        .bismillah { font-size: 0.7rem; color: #b8860b; margin-bottom: 15px; font-weight: 500; letter-spacing: 1px; }
         .host { font-size: 1rem; font-weight: 600; color: #4a4a4a; margin-bottom: 8px; }
         .invitation-text { font-size: 0.85rem; color: #666; margin-bottom: 25px; padding: 0 10px; }
 
-        /* Couple Names with Shimmer Effect */
+        /* Couple Names with Shimmer/Glow Animation */
         .couple { margin: 15px 0; }
         .names {
             font-family: 'Great Vibes', cursive;
@@ -92,7 +92,7 @@
             100% { text-shadow: 0 0 20px rgba(230, 202, 101, 0.8); }
         }
 
-        .relation { font-size: 0.9rem; color: #777; }
+        .relation { font-size: 0.85rem; color: #777; }
         .and { font-size: 1.2rem; color: #e6ca65; margin: 10px 0; font-weight: bold; }
 
         /* Timer Styling */
@@ -127,13 +127,27 @@
             to { opacity: 1; }
         }
 
-        .event-card h3 { color: #b8860b; font-size: 1.1rem; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px; }
-        .event-details p { margin: 5px 0; font-size: 0.9rem; }
+        .event-card h3 { color: #b8860b; font-size: 1.1rem; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 1px; }
+        .event-details p { margin: 6px 0; font-size: 0.9rem; color: #444; }
+
+        /* Location Button */
+        .map-btn {
+            display: inline-block;
+            margin-top: 10px;
+            background: #b8860b;
+            color: #fff;
+            padding: 8px 16px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
 
         /* Ad Card Section */
         .ad-card {
             margin-top: 30px;
-            padding: 15px;
+            padding: 18px;
             background: linear-gradient(135deg, #111111, #222222);
             color: #ffffff;
             border-radius: 10px;
@@ -143,8 +157,8 @@
         }
         .ad-title { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; color: #ffd700; margin-bottom: 5px; }
         .ad-shop-name { font-size: 1.3rem; font-weight: 600; color: #fff; margin-bottom: 5px; }
-        .ad-desc { font-size: 0.8rem; color: #ddd; margin-bottom: 10px; }
-        .ad-contact { display: inline-block; background: #ffd700; color: #000; padding: 6px 15px; border-radius: 20px; font-weight: 600; font-size: 0.85rem; text-decoration: none; }
+        .ad-desc { font-size: 0.8rem; color: #ddd; margin-bottom: 12px; }
+        .ad-contact { display: inline-block; background: #ffd700; color: #000; padding: 7px 18px; border-radius: 20px; font-weight: 600; font-size: 0.85rem; text-decoration: none; }
     </style>
 </head>
 <body>
@@ -189,6 +203,7 @@
                 <p><strong>Islamic Date:</strong> 29th Rabi-ul-Akhir 1448 AH</p>
                 <p><strong>Time:</strong> After Namaz-e-Magrib (At 6:30 PM)</p>
                 <p><strong>Venue:</strong> Zaitun Function Hall, Latur.</p>
+                <a href="https://maps.google.com/?q=Zaitun+Function+Hall+Latur" target="_blank" class="map-btn">📍 Get Location on Google Maps</a>
             </div>
         </div>
 
@@ -223,7 +238,7 @@
             }
         });
 
-        // Countdown Timer Script (Target: 11 Oct 2026)
+        // Countdown Timer Script
         const targetDate = new Date("October 11, 2026 18:30:00").getTime();
 
         const countdown = setInterval(() => {
