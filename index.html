@@ -16,6 +16,7 @@
             overflow-x: hidden;
             position: relative;
             min-height: 100vh;
+            user-select: none;
         }
 
         /* LIVE ANIMATED CANVAS BACKGROUND */
@@ -59,7 +60,7 @@
             max-width: 480px;
             margin: 30px auto;
             padding: 30px 20px;
-            background: rgba(20, 15, 30, 0.75);
+            background: rgba(20, 15, 30, 0.8);
             backdrop-filter: blur(10px);
             border: 2px solid rgba(212, 175, 55, 0.6);
             border-radius: 16px;
@@ -88,7 +89,7 @@
             margin-bottom: 20px;
         }
 
-        /* ANIMATED COUPLE NAMES (Uzma & Zaker) */
+        /* ANIMATED COUPLE NAMES */
         .couple {
             margin: 20px 0;
         }
@@ -140,7 +141,71 @@
             50% { opacity: 1; transform: scale(1.15); }
         }
 
-        /* COUNTDOWN */
+        /* SCRATCH CARD CONTAINER */
+        .scratch-section {
+            margin: 25px 0;
+            text-align: center;
+        }
+
+        .scratch-instruction {
+            font-size: 0.8rem;
+            color: #ffd700;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+
+        .scratch-container {
+            position: relative;
+            width: 280px;
+            height: 70px;
+            margin: 0 auto;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 2px solid #ffd700;
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+        }
+
+        /* Underneath Revealed Content */
+        .scratch-reveal-text {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #1e1333, #331d4a);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #ffd700;
+            z-index: 1;
+        }
+
+        .scratch-reveal-text .date-main {
+            font-size: 1.2rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .scratch-reveal-text .date-sub {
+            font-size: 0.75rem;
+            color: #ddd;
+        }
+
+        /* Overlay Canvas for Scratching */
+        #scratchCanvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+            cursor: pointer;
+            touch-action: none;
+        }
+
+        /* COUNTDOWN TIMER */
         .timer-title {
             font-size: 0.75rem;
             text-transform: uppercase;
@@ -236,7 +301,6 @@
             color: #aaa;
         }
 
-        /* Animated Shop Name Text */
         .animated-shop-name {
             font-size: 1.6rem;
             font-weight: 800;
@@ -325,6 +389,18 @@
             <div class="relation">(S/o Sayyed Sadik Ismailsab R/o Latur)</div>
         </div>
 
+        <!-- SCRATCH CARD TO REVEAL DATE -->
+        <div class="scratch-section">
+            <div class="scratch-instruction">✨ Scratch to reveal date ✨</div>
+            <div class="scratch-container">
+                <div class="scratch-reveal-text">
+                    <div class="date-main">OCTOBER 11, 2026</div>
+                    <div class="date-sub">Sunday, 6:30 PM Onwards</div>
+                </div>
+                <canvas id="scratchCanvas" width="280" height="70"></canvas>
+            </div>
+        </div>
+
         <div class="timer-title">COUNTDOWN TO NIKAH</div>
         <div id="timer">
             <div class="time-box"><span id="days">00</span><label>Days</label></div>
@@ -354,12 +430,51 @@
         </div>
     </div>
 
-    <!-- LIVE ANIMATION SCRIPTS -->
+    <!-- SCRIPTS -->
     <script>
-        // 1. LIVE CANVAS PARTICLE BACKGROUND (Gold Sparkling Video-like Effect)
+        // 1. SCRATCH CARD SCRIPT
+        const sCanvas = document.getElementById('scratchCanvas');
+        const sCtx = sCanvas.getContext('2d');
+        let isScratching = false;
+
+        // Draw Gold Scratch Layer
+        function initScratchCard() {
+            sCtx.fillStyle = '#d4af37';
+            sCtx.fillRect(0, 0, sCanvas.width, sCanvas.height);
+            
+            // Add decorative text on scratch layer
+            sCtx.fillStyle = '#000000';
+            sCtx.font = 'bold 13px Poppins, sans-serif';
+            sCtx.textAlign = 'center';
+            sCtx.fillText('SCRATCH HERE ✍️', sCanvas.width / 2, sCanvas.height / 2 + 5);
+        }
+
+        initScratchCard();
+
+        function scratch(e) {
+            if (!isScratching) return;
+            const rect = sCanvas.getBoundingClientRect();
+            const x = (e.clientX || (e.touches && e.touches[0].clientX)) - rect.left;
+            const y = (e.clientY || (e.touches && e.touches[0].clientY)) - rect.top;
+
+            sCtx.globalCompositeOperation = 'destination-out';
+            sCtx.beginPath();
+            sCtx.arc(x, y, 16, 0, Math.PI * 2);
+            sCtx.fill();
+        }
+
+        sCanvas.addEventListener('mousedown', (e) => { isScratching = true; scratch(e); });
+        sCanvas.addEventListener('mousemove', scratch);
+        sCanvas.addEventListener('mouseup', () => { isScratching = false; });
+        sCanvas.addEventListener('mouseleave', () => { isScratching = false; });
+
+        sCanvas.addEventListener('touchstart', (e) => { isScratching = true; scratch(e); });
+        sCanvas.addEventListener('touchmove', scratch);
+        sCanvas.addEventListener('touchend', () => { isScratching = false; });
+
+        // 2. LIVE CANVAS PARTICLE BACKGROUND
         const canvas = document.getElementById('bgCanvas');
         const ctx = canvas.getContext('2d');
-
         let particlesArray = [];
         const numberOfParticles = 75;
 
@@ -416,13 +531,13 @@
         }
         animateParticles();
 
-        // 2. MUSIC TOGGLE
+        // 3. MUSIC TOGGLE
         const music = document.getElementById('bgMusic');
         const musicBtn = document.getElementById('musicToggle');
         musicBtn.addEventListener('click', () => {
             if (music.paused) {
                 music.play().then(() => {
-                    document.getElementById('musicIcon').textContent = '⏸️';
+                    document.getElementById('musicIcon').textContent = '⏸️️';
                     document.getElementById('musicText').textContent = 'Pause';
                 });
             } else {
@@ -432,7 +547,7 @@
             }
         });
 
-        // 3. COUNTDOWN TIMER
+        // 4. COUNTDOWN TIMER
         const targetDate = new Date(2026, 9, 11, 18, 30, 0).getTime();
 
         function updateTimer() {
@@ -460,4 +575,3 @@
     </script>
 </body>
 </html>
-
