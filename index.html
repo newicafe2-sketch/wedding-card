@@ -146,7 +146,6 @@
             line-height: 1.7;
         }
 
-        /* ARJUMAND CARD (WITHOUT CROWN) */
         .arjumand-card {
             background: linear-gradient(135deg, rgba(35, 22, 55, 0.9), rgba(18, 12, 30, 0.95));
             border: 1.5px solid #ffd700;
@@ -314,7 +313,6 @@
             margin: 4px 0;
         }
 
-        /* VENUE CARD */
         .venue-card {
             background: linear-gradient(135deg, rgba(30, 20, 45, 0.95), rgba(18, 12, 28, 0.95));
             border: 1.5px solid #ffd700;
@@ -369,7 +367,6 @@
             transition: all 0.3s ease;
         }
 
-        /* AL-MUNTASREEN SECTION */
         .muntasreen-card {
             background: linear-gradient(145deg, rgba(35, 20, 50, 0.9), rgba(15, 10, 25, 0.9));
             border: 1.5px solid #ffd700;
@@ -415,15 +412,74 @@
             font-size: 0.7rem;
         }
 
-        /* KIDS SECTION */
-        .kids-section {
-            background: rgba(255, 215, 0, 0.08);
-            border: 1px stroke #ffd700;
-            border-radius: 10px;
-            padding: 12px;
-            margin: 18px 0;
-            font-size: 0.85rem;
-            color: #fff8dc;
+        /* ===== ANIMATED KIDS SECTION ===== */
+        .kids-container {
+            margin: 22px 0;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .kids-box {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.08), rgba(255, 105, 180, 0.08));
+            border: 1.5px dashed #ffd700;
+            border-radius: 14px;
+            padding: 14px 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .kids-box-2 {
+            background: linear-gradient(135deg, rgba(0, 255, 204, 0.08), rgba(186, 85, 211, 0.12));
+            border-color: #00ffcc;
+        }
+
+        .kids-header {
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: #ffe4b5;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+
+        .kids-names {
+            font-size: 1.05rem;
+            font-weight: 700;
+            display: inline-block;
+            background: linear-gradient(90deg, #ffd700, #ff69b4, #00ffcc, #ffd700);
+            background-size: 200% auto;
+            color: transparent;
+            -webkit-background-clip: text;
+            background-clip: text;
+            animation: kidGlow 3s linear infinite;
+        }
+
+        @keyframes kidGlow {
+            0% { background-position: 0% center; }
+            100% { background-position: 200% center; }
+        }
+
+        .kid-badge {
+            display: inline-block;
+            padding: 3px 8px;
+            margin: 2px 3px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            animation: bounceKid 2.5s ease-in-out infinite alternate;
+        }
+
+        .kid-badge:nth-child(even) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes bounceKid {
+            0% { transform: translateY(0px); }
+            100% { transform: translateY(-4px); }
         }
 
         /* ===== AD CARD WITH ITEMS GRID ===== */
@@ -464,7 +520,6 @@
             100% { filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.9)); }
         }
 
-        /* SHOP ITEMS GRID */
         .shop-items-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -574,7 +629,6 @@
             के साथ इन्शाअल्लाह होना तय पाया है। लिहाज़ा ईस महेफिले अक्द व तनावले तआम में शिरकत फर्माकर दुल्हा-दुल्हन को दुवाओं से नवाज़े।
         </p>
 
-        <!-- ARJUMAND CARD (CROWN REMOVED) -->
         <div class="arjumand-card">
             <div class="arjumand-title">: आरजुमंद :</div>
             <div class="arjumand-name">शेख महेबुब कासिमसाब</div>
@@ -622,9 +676,26 @@
             </div>
         </div>
 
-        <div class="kids-section">
-            <p>🌸 <strong>बुवा की शादी मे जरूर आना:</strong> अर्श, हनिया</p>
-            <p>🌸 <strong>अँटी के शादी में जरूर आना...!</strong> सोहेल, मो. मुख्तदीर, नजिया, मो. फैज़, कुलसुम</p>
+        <!-- ANIMATED KIDS SECTION -->
+        <div class="kids-container">
+            <div class="kids-box">
+                <div class="kids-header">🎈 <span>बुवा की शादी में जरूर आना:</span> 🧸</div>
+                <div class="kids-names">
+                    <span class="kid-badge">✨ अर्श</span>
+                    <span class="kid-badge">🌸 हनिया</span>
+                </div>
+            </div>
+
+            <div class="kids-box kids-box-2">
+                <div class="kids-header">🌟 <span>अँटी की शादी में जरूर आना...!</span> 🍭</div>
+                <div class="kids-names">
+                    <span class="kid-badge">👦 सोहेल</span>
+                    <span class="kid-badge">🌟 मो. मुख्तदीर</span>
+                    <span class="kid-badge">👑 नजिया</span>
+                    <span class="kid-badge">🚀 मो. फैज़</span>
+                    <span class="kid-badge">💖 कुलसुम</span>
+                </div>
+            </div>
         </div>
 
         <!-- MUQAM-E-AKD SECTION -->
@@ -635,7 +706,7 @@
             <a href="https://maps.google.com/?q=Zaitun+Function+Hall+Latur" target="_blank" class="map-btn">📍 हॉल का लोकेशन देखें</a>
         </div>
 
-        <!-- SPONSORED AD CARD (WITH ICONS/SYMBOLS) -->
+        <!-- SPONSORED AD CARD -->
         <div class="ad-card">
             <div class="ad-title">: फर्म :</div>
             <div class="animated-shop-name">अर्श पान शॉप</div>
