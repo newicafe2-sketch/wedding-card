@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wedding Invitation | Uzma & Zaker</title>
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>शादी का निमंत्रण | उजमा एवं जाकेर</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600;700&family=Tiro+Devanagari+Hindi&display=swap" rel="stylesheet">
     <!-- Confetti Library for Star Sparks Animation -->
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Tiro Devanagari Hindi', 'Poppins', serif;
             background: #0f0c1b;
             color: #ffffff;
             text-align: center;
@@ -19,6 +19,7 @@
             position: relative;
             min-height: 100vh;
             user-select: none;
+            line-height: 1.6;
         }
 
         /* LIVE ANIMATED CANVAS BACKGROUND */
@@ -53,16 +54,17 @@
             display: flex;
             align-items: center;
             gap: 6px;
+            font-family: 'Poppins', sans-serif;
         }
 
         /* MAIN WRAPPER CARD */
         .wrapper {
             position: relative;
             z-index: 10;
-            max-width: 480px;
+            max-width: 500px;
             margin: 30px auto;
             padding: 30px 20px;
-            background: rgba(20, 15, 30, 0.8);
+            background: rgba(20, 15, 30, 0.85);
             backdrop-filter: blur(10px);
             border: 2px solid rgba(212, 175, 55, 0.6);
             border-radius: 16px;
@@ -70,35 +72,34 @@
         }
 
         .bismillah {
-            font-size: 0.75rem;
+            font-size: 0.95rem;
             color: #ffd700;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
             font-weight: 600;
-            letter-spacing: 1.5px;
             text-shadow: 0 0 10px rgba(255,215,0,0.5);
         }
 
-        .host {
+        .greeting {
             font-size: 0.9rem;
-            font-weight: 600;
             color: #e2d9ca;
-            margin-bottom: 8px;
+            margin-bottom: 15px;
         }
 
-        .invitation-text {
-            font-size: 0.8rem;
-            color: #ccc;
-            margin-bottom: 20px;
-        }
-
-        /* ANIMATED COUPLE NAMES */
+        /* COUPLE SECTION */
         .couple {
             margin: 20px 0;
         }
 
+        .relation-title {
+            color: #ffd700;
+            font-size: 1.1rem;
+            margin-top: 10px;
+            font-weight: 600;
+        }
+
         .animated-name {
-            font-family: 'Great Vibes', cursive;
-            font-size: 3.8rem;
+            font-size: 2.8rem;
+            font-weight: 700;
             display: inline-block;
             background: linear-gradient(45deg, #ffd700, #fff8dc, #d4af37, #ffe4b5);
             background-size: 200% auto;
@@ -120,27 +121,34 @@
 
         @keyframes floatText {
             0% { transform: translateY(0px) scale(1); }
-            100% { transform: translateY(-8px) scale(1.03); }
+            100% { transform: translateY(-6px) scale(1.02); }
         }
 
         .relation {
-            font-size: 0.8rem;
-            color: #bbb;
-            margin-top: -5px;
+            font-size: 0.85rem;
+            color: #ccc;
+            margin-top: -2px;
         }
 
         .and {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             color: #ffd700;
-            margin: 10px 0;
+            margin: 12px 0;
             font-weight: bold;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
             animation: pulseAnd 2s infinite;
         }
 
         @keyframes pulseAnd {
-            0%, 100% { opacity: 0.7; transform: scale(1); }
-            50% { opacity: 1; transform: scale(1.15); }
+            0%, 100% { opacity: 0.8; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.1); }
+        }
+
+        .invitation-text {
+            font-size: 0.88rem;
+            color: #ddd;
+            margin: 20px 0;
+            line-height: 1.7;
         }
 
         /* SCRATCH CARD CONTAINER */
@@ -150,17 +158,16 @@
         }
 
         .scratch-instruction {
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             color: #ffd700;
             letter-spacing: 1px;
             margin-bottom: 8px;
-            text-transform: uppercase;
         }
 
         .scratch-container {
             position: relative;
-            width: 280px;
-            height: 70px;
+            width: 290px;
+            height: 75px;
             margin: 0 auto;
             border-radius: 12px;
             overflow: hidden;
@@ -196,14 +203,14 @@
         }
 
         .scratch-reveal-text .date-main {
-            font-size: 1.25rem;
+            font-size: 1.15rem;
             font-weight: 700;
             letter-spacing: 1px;
             text-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
         }
 
         .scratch-reveal-text .date-sub {
-            font-size: 0.75rem;
+            font-size: 0.8rem;
             color: #fff;
         }
 
@@ -221,9 +228,9 @@
 
         /* COUNTDOWN TIMER */
         .timer-title {
-            font-size: 0.75rem;
+            font-size: 0.8rem;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
             color: #ffd700;
             margin-top: 25px;
         }
@@ -233,6 +240,7 @@
             justify-content: center;
             gap: 10px;
             margin: 12px 0 25px 0;
+            font-family: 'Poppins', sans-serif;
         }
 
         .time-box {
@@ -258,28 +266,55 @@
             text-transform: uppercase;
         }
 
-        /* EVENT CARD */
-        .event-card {
+        /* CARD SECTIONS */
+        .info-card {
             background: rgba(255, 215, 0, 0.05);
-            padding: 18px;
-            margin: 20px 0;
+            padding: 16px;
+            margin: 18px 0;
             border-radius: 12px;
             border: 1px solid rgba(212, 175, 55, 0.4);
-            text-align: left;
+            text-align: center;
         }
 
-        .event-card h3 {
+        .info-card h3 {
             color: #ffd700;
-            font-size: 1rem;
+            font-size: 1.05rem;
             margin-bottom: 8px;
-            text-transform: uppercase;
             letter-spacing: 1px;
         }
 
-        .event-card p {
-            font-size: 0.85rem;
+        .info-card p {
+            font-size: 0.88rem;
             color: #ddd;
-            margin: 5px 0;
+            margin: 4px 0;
+        }
+
+        /* AL-MUNTASREEN GRID */
+        .muntasreen-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            text-align: left;
+            margin-top: 10px;
+            font-size: 0.82rem;
+        }
+
+        .muntasreen-grid div {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 6px 10px;
+            border-radius: 6px;
+            border-left: 2px solid #ffd700;
+        }
+
+        /* KIDS SECTION */
+        .kids-section {
+            background: rgba(255, 215, 0, 0.08);
+            border: 1px stroke #ffd700;
+            border-radius: 10px;
+            padding: 12px;
+            margin: 18px 0;
+            font-size: 0.85rem;
+            color: #fff8dc;
         }
 
         .map-btn {
@@ -298,7 +333,7 @@
         /* AD CARD */
         .ad-card {
             margin-top: 30px;
-            padding: 22px 15px;
+            padding: 20px 15px;
             background: linear-gradient(145deg, #0d0d0d, #1a1508);
             border-radius: 14px;
             border: 2px solid #ffd700;
@@ -309,9 +344,8 @@
         }
 
         .ad-title {
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
+            font-size: 0.75rem;
+            letter-spacing: 1px;
             color: #aaa;
         }
 
@@ -319,8 +353,7 @@
             font-size: 1.6rem;
             font-weight: 800;
             margin: 8px 0;
-            text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
             background: linear-gradient(90deg, #ff4500, #ffd700, #00ffcc, #ffd700, #ff4500);
             background-size: 300% auto;
             color: transparent;
@@ -355,6 +388,7 @@
             font-weight: 700;
             font-size: 0.8rem;
             text-decoration: none;
+            font-family: 'Poppins', sans-serif;
         }
 
         .ad-location {
@@ -366,6 +400,7 @@
             font-weight: 600;
             font-size: 0.8rem;
             text-decoration: none;
+            font-family: 'Poppins', sans-serif;
         }
     </style>
 </head>
@@ -375,7 +410,7 @@
 
     <div class="music-btn-container">
         <button class="music-btn" id="musicToggle">
-            <span id="musicIcon">🎵</span> <span id="musicText">Play Music</span>
+            <span id="musicIcon">🎵</span> <span id="musicText">म्यूजिक बजाएं</span>
         </button>
     </div>
 
@@ -384,48 +419,82 @@
     </audio>
 
     <div class="wrapper">
-        <div class="bismillah">IN THE NAME OF ALLAH, THE MOST GRACIOUS, THE MOST MERCIFUL</div>
+        <div class="bismillah">अल्लाह के नामसे जो निहायत मेहरबान और बडा रहेम करनेवाला है।</div>
         
-        <div class="host">MRS. & MR. SHAIKH MAHEBUBSAB KASIMSAB</div>
-        <p class="invitation-text">Solicit your gracious presence on the auspicious occasion of the Wedding Ceremony of his beloved daughter</p>
+        <div class="greeting">अस्सलामु अलैकुम..... अल्लाह के फ़ज़ल व करम से हमारे यहां</div>
 
         <div class="couple">
-            <div class="animated-name">Uzma</div>
-            <div class="relation">(D/o Shaikh Ayyub Kasimsab R/o Latur)</div>
+            <div class="relation-title">नुरेचष्मी</div>
+            <div class="animated-name">उजमा</div>
+            <div class="relation">(शेख अय्युब कासिमसाब साकीन लातूर इनकी दुख्तर नेक अख्तर)</div>
             
-            <div class="and">WITH</div>
+            <div class="and">का अक्द-ए-मसऊद</div>
             
-            <div class="animated-name name-zaker">Zaker</div>
-            <div class="relation">(S/o Sayyed Sadik Ismailsab R/o Latur)</div>
+            <div class="relation-title">नुरेचष्म</div>
+            <div class="animated-name name-zaker">जाकेर</div>
+            <div class="relation">(जनाब सय्यद सादिक इस्माईलसाब साकीन लातूरवाले जनता फर्जद)</div>
+        </div>
+
+        <p class="invitation-text">
+            के साथ इन्शाअल्लाह होना तय पाया है। लिहाज़ा ईस महेफिले अक्द व तनावले तआम में शिरकत फर्माकर दुल्हा-दुल्हन को दुवाओं से नवाज़े।
+        </p>
+
+        <div class="info-card">
+            <h3>: आरजुमंद :</h3>
+            <p><strong>शेख महेबुब कासिमसाब</strong></p>
         </div>
 
         <!-- SCRATCH CARD TO REVEAL DATE & TIME -->
         <div class="scratch-section">
-            <div class="scratch-instruction" id="scratchInstruction">✨ Scratch to reveal date ✨</div>
+            <div class="scratch-instruction" id="scratchInstruction">✨ तारीख देखने के लिए स्क्रैच करें ✨</div>
             <div class="scratch-container" id="scratchBox">
                 <div class="scratch-reveal-text">
-                    <div class="date-main">OCTOBER 11, 2026</div>
-                    <div class="date-sub">Sunday, 07:10 PM Onwards</div>
+                    <div class="date-main">11 अक्टोबर 2026 बरोज़ इतवार</div>
+                    <div class="date-sub">बाद नमाज़-ए-मगरीब (शाम 7:10 बजे)</div>
                 </div>
-                <canvas id="scratchCanvas" width="280" height="70"></canvas>
+                <canvas id="scratchCanvas" width="290" height="75"></canvas>
             </div>
         </div>
 
-        <div class="timer-title">COUNTDOWN TO NIKAH</div>
+        <div class="timer-title">निकाह का काउंटडाउन</div>
         <div id="timer">
-            <div class="time-box"><span id="days">00</span><label>Days</label></div>
-            <div class="time-box"><span id="hours">00</span><label>Hours</label></div>
-            <div class="time-box"><span id="minutes">00</span><label>Mins</label></div>
-            <div class="time-box"><span id="seconds">00</span><label>Secs</label></div>
+            <div class="time-box"><span id="days">00</span><label>दिन</label></div>
+            <div class="time-box"><span id="hours">00</span><label>घंटे</label></div>
+            <div class="time-box"><span id="minutes">00</span><label>मिनट</label></div>
+            <div class="time-box"><span id="seconds">00</span><label>सेकंड</label></div>
         </div>
 
-        <div class="event-card">
-            <h3>Nikah Insha Allah</h3>
-            <p><strong>Date:</strong> Sunday, 11 October 2026</p>
-            <p><strong>Islamic Date:</strong> 29th Rabi-ul-Akhir 1448 AH</p>
-            <p><strong>Time:</strong> After Namaz-e-Magrib (At 07:10 PM)</p>
-            <p><strong>Venue:</strong> Zaitun Function Hall, Latur.</p>
-            <a href="https://maps.google.com/?q=Zaitun+Function+Hall+Latur" target="_blank" class="map-btn">📍 Get Function Hall Location</a>
+        <div class="info-card">
+            <h3>: निकाह इन्शा अल्लाह :</h3>
+            <p><strong>तारीख:</strong> 11 अक्टोबर 2026 बरोज़ इतवार (रविवार)</p>
+            <p><strong>वक्त:</strong> बाद नमाज़-ए-मगरीब (शाम 7:10 बजे)</p>
+            <p><strong>इस्लामिक तारीख:</strong> 29 रब्बी-उल-आखर 1448 हि.</p>
+        </div>
+
+        <div class="info-card">
+            <h3>: अलगुंतज़रीन :</h3>
+            <div class="muntasreen-grid">
+                <div>शेख याकूब कासिमसाब</div>
+                <div>शेख चाँद राजेसाब</div>
+                <div>शेख महेताब कासिमसाब</div>
+                <div>शेख नबी याकूबसाब</div>
+                <div>शेख समीर अय्युबसाब</div>
+                <div>शेख रियाज़ोद्दीन महेबुबसाब</div>
+                <div>शेख वसीम महेबुबसाब</div>
+                <div>शेख आफताब महेताब</div>
+            </div>
+        </div>
+
+        <div class="kids-section">
+            <p>🌸 <strong>बुवा की शादी मे जरूर आना:</strong> अर्श, हनिया</p>
+            <p>🌸 <strong>अँटी के शादी में जरूर आना...!</strong> सोहेल, मो. मुख्तदीर, नजिया, मो. फैज़, कुलसुम</p>
+        </div>
+
+        <div class="info-card">
+            <h3>: मुकाम-ए-अक्द :</h3>
+            <p><strong>जैतून फंक्शन हॉल</strong></p>
+            <p>रिंग रोड लातूर</p>
+            <a href="https://maps.google.com/?q=Zaitun+Function+Hall+Latur" target="_blank" class="map-btn">📍 हॉल का रास्ता (Location) देखें</a>
         </div>
 
         <div class="ad-card">
@@ -453,9 +522,9 @@
             sCtx.fillRect(0, 0, sCanvas.width, sCanvas.height);
             
             sCtx.fillStyle = '#000000';
-            sCtx.font = 'bold 13px Poppins, sans-serif';
+            sCtx.font = 'bold 14px "Tiro Devanagari Hindi", sans-serif';
             sCtx.textAlign = 'center';
-            sCtx.fillText('SCRATCH HERE ✍️', sCanvas.width / 2, sCanvas.height / 2 + 5);
+            sCtx.fillText('यहाँ स्क्रैच करें ✍️', sCanvas.width / 2, sCanvas.height / 2 + 5);
         }
 
         initScratchCard();
@@ -479,7 +548,7 @@
                 setTimeout(() => sCanvas.style.display = 'none', 500);
 
                 scratchBox.classList.add('revealed');
-                scratchInstruction.innerHTML = '🎉 Date Revealed! 🎉';
+                scratchInstruction.innerHTML = '🎉 तारीख दिख गई! 🎉';
 
                 triggerStarExplosion();
             }
@@ -590,12 +659,12 @@
             if (music.paused) {
                 music.play().then(() => {
                     document.getElementById('musicIcon').textContent = '⏸';
-                    document.getElementById('musicText').textContent = 'Pause';
+                    document.getElementById('musicText').textContent = 'बंद करें';
                 });
             } else {
                 music.pause();
                 document.getElementById('musicIcon').textContent = '🎵';
-                document.getElementById('musicText').textContent = 'Play Music';
+                document.getElementById('musicText').textContent = 'म्यूजिक बजाएं';
             }
         });
 
@@ -607,7 +676,7 @@
             const difference = targetDate - now;
 
             if (difference <= 0) {
-                document.getElementById("timer").innerHTML = "<b style='color:#ffd700;'>The Auspicious Moment Has Arrived!</b>";
+                document.getElementById("timer").innerHTML = "<b style='color:#ffd700;'>शुभ घड़ी आ गई है!</b>";
                 return;
             }
 
