@@ -281,7 +281,67 @@
             margin: 4px 0;
         }
 
-        /* ===== COLORFUL & FIT AL-MUNTASREEN SECTION ===== */
+        /* ===== BEAUTIFIED VENUE / MUQAM-E-AKD CARD ===== */
+        .venue-card {
+            background: linear-gradient(135deg, rgba(30, 20, 45, 0.95), rgba(18, 12, 28, 0.95));
+            border: 1.5px solid #ffd700;
+            border-radius: 14px;
+            padding: 20px 15px;
+            margin: 20px 0;
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.3), inset 0 0 10px rgba(212, 175, 55, 0.15);
+            position: relative;
+        }
+
+        .venue-title {
+            color: #ffd700;
+            font-size: 1.1rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-shadow: 0 0 8px rgba(255, 215, 0, 0.5);
+            margin-bottom: 10px;
+        }
+
+        .venue-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin: 6px 0 2px 0;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .venue-address {
+            font-size: 0.95rem;
+            color: #ffe4b5;
+            margin-bottom: 14px;
+            font-weight: 500;
+        }
+
+        .map-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 5px;
+            background: linear-gradient(135deg, #ffd700, #b8860b);
+            color: #000000;
+            padding: 10px 22px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-size: 0.88rem;
+            font-weight: 700;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .map-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 215, 0, 0.6);
+        }
+
+        /* AL-MUNTASREEN SECTION */
         .muntasreen-card {
             background: linear-gradient(145deg, rgba(35, 20, 50, 0.9), rgba(15, 10, 25, 0.9));
             border: 1.5px solid #ffd700;
@@ -310,9 +370,9 @@
             border-left: 3px solid #ffd700;
             border-top: 1px solid rgba(255, 215, 0, 0.2);
             color: #fff8dc;
-            font-size: 0.78rem; /* Adjusted so long names fit in a single line */
+            font-size: 0.78rem;
             font-weight: 500;
-            white-space: nowrap; /* Prevents text breaking into 2 lines */
+            white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
             box-shadow: 0 2px 6px rgba(0,0,0,0.4);
@@ -338,19 +398,6 @@
             color: #fff8dc;
         }
 
-        .map-btn {
-            display: inline-block;
-            margin-top: 12px;
-            background: linear-gradient(135deg, #d4af37, #aa771c);
-            color: #fff;
-            padding: 9px 18px;
-            border-radius: 25px;
-            text-decoration: none;
-            font-size: 0.85rem;
-            font-weight: 600;
-            box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
-        }
-
         /* AD CARD */
         .ad-card {
             margin-top: 30px;
@@ -365,9 +412,10 @@
         }
 
         .ad-title {
-            font-size: 0.75rem;
+            font-size: 0.85rem;
             letter-spacing: 1px;
-            color: #aaa;
+            color: #ffd700;
+            font-weight: 600;
         }
 
         .animated-shop-name {
@@ -492,7 +540,7 @@
             <p><strong>इस्लामिक तारीख:</strong> 29 रब्बी-उल-आखर 1448 हि.</p>
         </div>
 
-        <!-- UPDATED & COLORFUL AL-MUNTASREEN SECTION -->
+        <!-- AL-MUNTASREEN SECTION -->
         <div class="info-card muntasreen-card">
             <h3>: अलगुंतज़रीन :</h3>
             <div class="muntasreen-grid">
@@ -512,16 +560,17 @@
             <p>🌸 <strong>अँटी के शादी में जरूर आना...!</strong> सोहेल, मो. मुख्तदीर, नजिया, मो. फैज़, कुलसुम</p>
         </div>
 
-        <div class="info-card">
-            <h3>: मुकाम-ए-अक्द :</h3>
-            <p><strong>जैतून फंक्शन हॉल</strong></p>
-            <p>रिंग रोड लातूर</p>
-            <a href="https://maps.google.com/?q=Zaitun+Function+Hall+Latur" target="_blank" class="map-btn">📍 हॉल का रास्ता (Location) देखें</a>
+        <!-- BEAUTIFIED MUQAM-E-AKD SECTION -->
+        <div class="venue-card">
+            <div class="venue-title">: मुकाम-ए-अक्द :</div>
+            <div class="venue-name">🏛️ जैतून फंक्शन हॉल</div>
+            <div class="venue-address">रिंग रोड, लातूर</div>
+            <a href="https://maps.google.com/?q=Zaitun+Function+Hall+Latur" target="_blank" class="map-btn">📍 हॉल का लोकेशन देखें</a>
         </div>
 
-        <!-- SPONSORED AD CARD -->
+        <!-- SPONSORED AD CARD (UPDATED TO "फर्म") -->
         <div class="ad-card">
-            <div class="ad-title">सौजन्य से (Sponsor)</div>
+            <div class="ad-title">: फर्म :</div>
             <div class="animated-shop-name">अर्श पान शॉप</div>
             <div class="ad-desc">स्पेशल मीठा पान एवं रॉयल मसाला पान</div>
             <div class="ad-btn-group">
