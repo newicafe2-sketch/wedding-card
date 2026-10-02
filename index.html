@@ -146,7 +146,7 @@
             line-height: 1.7;
         }
 
-        /* ===== BEAUTIFIED ARJUMAND CARD ===== */
+        /* ARJUMAND CARD (WITHOUT CROWN) */
         .arjumand-card {
             background: linear-gradient(135deg, rgba(35, 22, 55, 0.9), rgba(18, 12, 30, 0.95));
             border: 1.5px solid #ffd700;
@@ -156,13 +156,6 @@
             box-shadow: 0 0 20px rgba(212, 175, 55, 0.35), inset 0 0 12px rgba(255, 215, 0, 0.15);
             position: relative;
             overflow: hidden;
-        }
-
-        .arjumand-card::before {
-            content: "👑";
-            font-size: 1.2rem;
-            display: block;
-            margin-bottom: 2px;
         }
 
         .arjumand-title {
@@ -321,7 +314,7 @@
             margin: 4px 0;
         }
 
-        /* VENUE / MUQAM-E-AKD CARD */
+        /* VENUE CARD */
         .venue-card {
             background: linear-gradient(135deg, rgba(30, 20, 45, 0.95), rgba(18, 12, 28, 0.95));
             border: 1.5px solid #ffd700;
@@ -433,7 +426,7 @@
             color: #fff8dc;
         }
 
-        /* AD CARD */
+        /* ===== AD CARD WITH ITEMS GRID ===== */
         .ad-card {
             margin-top: 30px;
             padding: 20px 15px;
@@ -456,7 +449,7 @@
         .animated-shop-name {
             font-size: 1.6rem;
             font-weight: 800;
-            margin: 8px 0;
+            margin: 6px 0 12px 0;
             letter-spacing: 1px;
             background: linear-gradient(90deg, #ff4500, #ffd700, #00ffcc, #ffd700, #ff4500);
             background-size: 300% auto;
@@ -471,10 +464,48 @@
             100% { filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.9)); }
         }
 
-        .ad-desc {
-            font-size: 0.85rem;
-            color: #ddd;
-            margin-bottom: 15px;
+        /* SHOP ITEMS GRID */
+        .shop-items-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin: 15px 0 20px 0;
+        }
+
+        .shop-item {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            border-radius: 10px;
+            padding: 10px 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-align: left;
+            transition: transform 0.3s ease;
+        }
+
+        .shop-item:hover {
+            transform: translateY(-3px);
+            border-color: #ffd700;
+            background: rgba(255, 215, 0, 0.12);
+        }
+
+        .item-icon {
+            font-size: 1.3rem;
+            background: rgba(0, 0, 0, 0.4);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #ffd700;
+        }
+
+        .item-text {
+            font-size: 0.82rem;
+            color: #fff8dc;
+            font-weight: 600;
         }
 
         .ad-btn-group {
@@ -543,7 +574,7 @@
             के साथ इन्शाअल्लाह होना तय पाया है। लिहाज़ा ईस महेफिले अक्द व तनावले तआम में शिरकत फर्माकर दुल्हा-दुल्हन को दुवाओं से नवाज़े।
         </p>
 
-        <!-- BEAUTIFIED ARJUMAND CARD -->
+        <!-- ARJUMAND CARD (CROWN REMOVED) -->
         <div class="arjumand-card">
             <div class="arjumand-title">: आरजुमंद :</div>
             <div class="arjumand-name">शेख महेबुब कासिमसाब</div>
@@ -604,11 +635,30 @@
             <a href="https://maps.google.com/?q=Zaitun+Function+Hall+Latur" target="_blank" class="map-btn">📍 हॉल का लोकेशन देखें</a>
         </div>
 
-        <!-- SPONSORED AD CARD -->
+        <!-- SPONSORED AD CARD (WITH ICONS/SYMBOLS) -->
         <div class="ad-card">
             <div class="ad-title">: फर्म :</div>
             <div class="animated-shop-name">अर्श पान शॉप</div>
-            <div class="ad-desc">स्पेशल मीठा पान एवं रॉयल मसाला पान</div>
+            
+            <div class="shop-items-grid">
+                <div class="shop-item">
+                    <div class="item-icon">🍃</div>
+                    <div class="item-text">मसाला पान</div>
+                </div>
+                <div class="shop-item">
+                    <div class="item-icon">🍫</div>
+                    <div class="item-text">चॉकलेट पान</div>
+                </div>
+                <div class="shop-item">
+                    <div class="item-icon">✨</div>
+                    <div class="item-text">डिस्को सुपारी</div>
+                </div>
+                <div class="shop-item">
+                    <div class="item-icon">🥤</div>
+                    <div class="item-text">कोल्ड्रिंक्स</div>
+                </div>
+            </div>
+
             <div class="ad-btn-group">
                 <a href="tel:8999698989" class="ad-contact">📞 कॉल करें: 8999698989</a>
                 <a href="https://maps.google.com/?q=Arsh+Pan+Shop+Latur" target="_blank" class="ad-location">📍 लोकेशन देखें</a>
