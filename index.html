@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>शादी का निमंत्रण | उजमा एवं जाकेर</title>
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600;700&family=Tiro+Devanagari+Hindi&display=swap" rel="stylesheet">
-    <!-- Confetti Library for Star Sparks Animation -->
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -22,7 +21,6 @@
             line-height: 1.6;
         }
 
-        /* LIVE ANIMATED CANVAS BACKGROUND */
         #bgCanvas {
             position: fixed;
             top: 0;
@@ -33,7 +31,6 @@
             pointer-events: none;
         }
 
-        /* FLOATING MUSIC BUTTON */
         .music-btn-container {
             position: fixed;
             bottom: 20px;
@@ -57,7 +54,6 @@
             font-family: 'Poppins', sans-serif;
         }
 
-        /* MAIN WRAPPER CARD */
         .wrapper {
             position: relative;
             z-index: 10;
@@ -85,7 +81,6 @@
             margin-bottom: 15px;
         }
 
-        /* COUPLE SECTION */
         .couple {
             margin: 20px 0;
         }
@@ -151,7 +146,6 @@
             line-height: 1.7;
         }
 
-        /* SCRATCH CARD CONTAINER */
         .scratch-section {
             margin: 25px 0;
             text-align: center;
@@ -226,7 +220,6 @@
             transition: opacity 0.5s ease;
         }
 
-        /* COUNTDOWN TIMER */
         .timer-title {
             font-size: 0.8rem;
             text-transform: uppercase;
@@ -266,7 +259,6 @@
             text-transform: uppercase;
         }
 
-        /* CARD SECTIONS */
         .info-card {
             background: rgba(255, 215, 0, 0.05);
             padding: 16px;
@@ -289,21 +281,50 @@
             margin: 4px 0;
         }
 
-        /* AL-MUNTASREEN GRID */
+        /* ===== COLORFUL & FIT AL-MUNTASREEN SECTION ===== */
+        .muntasreen-card {
+            background: linear-gradient(145deg, rgba(35, 20, 50, 0.9), rgba(15, 10, 25, 0.9));
+            border: 1.5px solid #ffd700;
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.25);
+            padding: 18px 12px;
+        }
+
+        .muntasreen-card h3 {
+            color: #ffe4b5;
+            text-shadow: 0 0 8px rgba(255, 215, 0, 0.6);
+            margin-bottom: 12px;
+        }
+
         .muntasreen-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 8px;
+            gap: 10px;
             text-align: left;
-            margin-top: 10px;
-            font-size: 0.82rem;
+            margin-top: 8px;
         }
 
-        .muntasreen-grid div {
-            background: rgba(255, 255, 255, 0.03);
-            padding: 6px 10px;
-            border-radius: 6px;
-            border-left: 2px solid #ffd700;
+        .muntasreen-item {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.12), rgba(255, 255, 255, 0.03));
+            padding: 8px 6px;
+            border-radius: 8px;
+            border-left: 3px solid #ffd700;
+            border-top: 1px solid rgba(255, 215, 0, 0.2);
+            color: #fff8dc;
+            font-size: 0.78rem; /* Adjusted so long names fit in a single line */
+            font-weight: 500;
+            white-space: nowrap; /* Prevents text breaking into 2 lines */
+            overflow: hidden;
+            text-overflow: ellipsis;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+            display: flex;
+            align-items: center;
+        }
+
+        .muntasreen-item::before {
+            content: "❖";
+            color: #ffd700;
+            margin-right: 5px;
+            font-size: 0.7rem;
         }
 
         /* KIDS SECTION */
@@ -471,17 +492,18 @@
             <p><strong>इस्लामिक तारीख:</strong> 29 रब्बी-उल-आखर 1448 हि.</p>
         </div>
 
-        <div class="info-card">
+        <!-- UPDATED & COLORFUL AL-MUNTASREEN SECTION -->
+        <div class="info-card muntasreen-card">
             <h3>: अलगुंतज़रीन :</h3>
             <div class="muntasreen-grid">
-                <div>शेख याकूब कासिमसाब</div>
-                <div>शेख चाँद राजेसाब</div>
-                <div>शेख महेताब कासिमसाब</div>
-                <div>शेख नबी याकूबसाब</div>
-                <div>शेख समीर अय्युबसाब</div>
-                <div>शेख रियाज़ोद्दीन महेबुबसाब</div>
-                <div>शेख वसीम महेबुबसाब</div>
-                <div>शेख आफताब महेताब</div>
+                <div class="muntasreen-item">शेख याकूब कासिमसाब</div>
+                <div class="muntasreen-item">शेख चाँद राजेसाब</div>
+                <div class="muntasreen-item">शेख महेताब कासिमसाब</div>
+                <div class="muntasreen-item">शेख नबी याकूबसाब</div>
+                <div class="muntasreen-item">शेख समीर अय्युबसाब</div>
+                <div class="muntasreen-item">शेख रियाज़ोद्दीन महेबुबसाब</div>
+                <div class="muntasreen-item">शेख वसीम महेबुबसाब</div>
+                <div class="muntasreen-item">शेख आफताब महेताब</div>
             </div>
         </div>
 
@@ -497,7 +519,7 @@
             <a href="https://maps.google.com/?q=Zaitun+Function+Hall+Latur" target="_blank" class="map-btn">📍 हॉल का रास्ता (Location) देखें</a>
         </div>
 
-        <!-- SPONSORED AD CARD (HINDI UPDATED) -->
+        <!-- SPONSORED AD CARD -->
         <div class="ad-card">
             <div class="ad-title">सौजन्य से (Sponsor)</div>
             <div class="animated-shop-name">अर्श पान शॉप</div>
@@ -510,7 +532,7 @@
     </div>
 
     <script>
-        // 1. SCRATCH CARD SCRIPT
+        // SCRATCH CARD
         const sCanvas = document.getElementById('scratchCanvas');
         const sCtx = sCanvas.getContext('2d');
         const scratchBox = document.getElementById('scratchBox');
@@ -521,18 +543,15 @@
         function initScratchCard() {
             sCtx.fillStyle = '#d4af37';
             sCtx.fillRect(0, 0, sCanvas.width, sCanvas.height);
-            
             sCtx.fillStyle = '#000000';
             sCtx.font = 'bold 14px "Tiro Devanagari Hindi", sans-serif';
             sCtx.textAlign = 'center';
             sCtx.fillText('यहाँ स्क्रैच करें ✍️', sCanvas.width / 2, sCanvas.height / 2 + 5);
         }
-
         initScratchCard();
 
         function checkScratchPercentage() {
             if (isAlreadyRevealed) return;
-
             const imageData = sCtx.getImageData(0, 0, sCanvas.width, sCanvas.height);
             const pixels = imageData.data;
             let transparentPixels = 0;
@@ -542,15 +561,12 @@
             }
 
             const percentage = (transparentPixels / (pixels.length / 4)) * 100;
-
             if (percentage > 45) {
                 isAlreadyRevealed = true;
                 sCanvas.style.opacity = '0';
                 setTimeout(() => sCanvas.style.display = 'none', 500);
-
                 scratchBox.classList.add('revealed');
                 scratchInstruction.innerHTML = '🎉 तारीख दिख गई! 🎉';
-
                 triggerStarExplosion();
             }
         }
@@ -558,13 +574,11 @@
         function triggerStarExplosion() {
             var count = 200;
             var defaults = { origin: { y: 0.6 } };
-
             function fire(particleRatio, opts) {
                 confetti(Object.assign({}, defaults, opts, {
                     particleCount: Math.floor(count * particleRatio)
                 }));
             }
-
             fire(0.25, { spread: 26, startVelocity: 55, shapes: ['star'], colors: ['#ffd700', '#ffffff'] });
             fire(0.2, { spread: 60, shapes: ['star'], colors: ['#ffd700', '#ff8c00', '#ffffff'] });
             fire(0.35, { spread: 100, decay: 0.91, scalar: 0.8 });
@@ -594,7 +608,7 @@
         sCanvas.addEventListener('touchmove', scratch);
         sCanvas.addEventListener('touchend', () => { isScratching = false; });
 
-        // 2. LIVE CANVAS BACKGROUND
+        // LIVE CANVAS BACKGROUND
         const canvas = document.getElementById('bgCanvas');
         const ctx = canvas.getContext('2d');
         let particlesArray = [];
@@ -653,7 +667,7 @@
         }
         animateParticles();
 
-        // 3. MUSIC TOGGLE
+        // MUSIC TOGGLE
         const music = document.getElementById('bgMusic');
         const musicBtn = document.getElementById('musicToggle');
         musicBtn.addEventListener('click', () => {
@@ -669,7 +683,7 @@
             }
         });
 
-        // 4. COUNTDOWN TIMER (Target: 11 Oct 2026 at 07:10 PM)
+        // COUNTDOWN TIMER
         const targetDate = new Date(2026, 9, 11, 19, 10, 0).getTime();
 
         function updateTimer() {
