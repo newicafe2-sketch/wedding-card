@@ -146,6 +146,46 @@
             line-height: 1.7;
         }
 
+        /* ===== BEAUTIFIED ARJUMAND CARD ===== */
+        .arjumand-card {
+            background: linear-gradient(135deg, rgba(35, 22, 55, 0.9), rgba(18, 12, 30, 0.95));
+            border: 1.5px solid #ffd700;
+            border-radius: 14px;
+            padding: 18px 15px;
+            margin: 22px 0;
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.35), inset 0 0 12px rgba(255, 215, 0, 0.15);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .arjumand-card::before {
+            content: "👑";
+            font-size: 1.2rem;
+            display: block;
+            margin-bottom: 2px;
+        }
+
+        .arjumand-title {
+            color: #ffd700;
+            font-size: 1.15rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-shadow: 0 0 8px rgba(255, 215, 0, 0.6);
+            margin-bottom: 8px;
+        }
+
+        .arjumand-name {
+            font-size: 1.45rem;
+            font-weight: 700;
+            color: #ffffff;
+            letter-spacing: 0.5px;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+            background: linear-gradient(45deg, #fff8dc, #ffd700, #ffffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* SCRATCH CARD SECTION */
         .scratch-section {
             margin: 25px 0;
             text-align: center;
@@ -281,7 +321,7 @@
             margin: 4px 0;
         }
 
-        /* ===== BEAUTIFIED VENUE / MUQAM-E-AKD CARD ===== */
+        /* VENUE / MUQAM-E-AKD CARD */
         .venue-card {
             background: linear-gradient(135deg, rgba(30, 20, 45, 0.95), rgba(18, 12, 28, 0.95));
             border: 1.5px solid #ffd700;
@@ -334,11 +374,6 @@
             font-weight: 700;
             box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
             transition: all 0.3s ease;
-        }
-
-        .map-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(255, 215, 0, 0.6);
         }
 
         /* AL-MUNTASREEN SECTION */
@@ -508,9 +543,10 @@
             के साथ इन्शाअल्लाह होना तय पाया है। लिहाज़ा ईस महेफिले अक्द व तनावले तआम में शिरकत फर्माकर दुल्हा-दुल्हन को दुवाओं से नवाज़े।
         </p>
 
-        <div class="info-card">
-            <h3>: आरजुमंद :</h3>
-            <p><strong>शेख महेबुब कासिमसाब</strong></p>
+        <!-- BEAUTIFIED ARJUMAND CARD -->
+        <div class="arjumand-card">
+            <div class="arjumand-title">: आरजुमंद :</div>
+            <div class="arjumand-name">शेख महेबुब कासिमसाब</div>
         </div>
 
         <!-- SCRATCH CARD TO REVEAL DATE & TIME -->
@@ -560,7 +596,7 @@
             <p>🌸 <strong>अँटी के शादी में जरूर आना...!</strong> सोहेल, मो. मुख्तदीर, नजिया, मो. फैज़, कुलसुम</p>
         </div>
 
-        <!-- BEAUTIFIED MUQAM-E-AKD SECTION -->
+        <!-- MUQAM-E-AKD SECTION -->
         <div class="venue-card">
             <div class="venue-title">: मुकाम-ए-अक्द :</div>
             <div class="venue-name">🏛️ जैतून फंक्शन हॉल</div>
@@ -568,7 +604,7 @@
             <a href="https://maps.google.com/?q=Zaitun+Function+Hall+Latur" target="_blank" class="map-btn">📍 हॉल का लोकेशन देखें</a>
         </div>
 
-        <!-- SPONSORED AD CARD (UPDATED TO "फर्म") -->
+        <!-- SPONSORED AD CARD -->
         <div class="ad-card">
             <div class="ad-title">: फर्म :</div>
             <div class="animated-shop-name">अर्श पान शॉप</div>
