@@ -661,8 +661,9 @@
         </button>
     </div>
 
+    <!-- SONG UPDATED TO song2.mp3 -->
     <audio id="bgMusic" loop preload="auto">
-        <source src="song.mp3" type="audio/mpeg">
+        <source src="song2.mp3" type="audio/mpeg">
     </audio>
 
     <div class="wrapper">
@@ -687,23 +688,24 @@
         </p>
 
         <div class="arjumand-card">
-            <div class="arjumand-title">: आरजुमंद :</div>
-            <div class="arjumand-name">शेख महेबुब कासिमसाब</div>
+            <div class="arjumand-title">आर्जूमंद</div>
+            <div class="arjumand-name">समस्त शेख एवं सय्यद परिवार</div>
         </div>
 
-        <!-- SCRATCH CARD -->
+        <!-- SCRATCH CARD SECTION -->
         <div class="scratch-section">
-            <div class="scratch-instruction" id="scratchInstruction">✨ तारीख देखने के लिए स्क्रैच करें ✨</div>
-            <div class="scratch-container" id="scratchBox">
+            <div class="scratch-instruction">✨ तारीख देखने के लिए कार्ड स्क्रैच करें ✨</div>
+            <div class="scratch-container">
                 <div class="scratch-reveal-text">
-                    <div class="date-main">11 अक्टोबर 2026 बरोज़ इतवार</div>
-                    <div class="date-sub">बाद नमाज़-ए-मगरीब (शाम 7:10 बजे)</div>
+                    <span class="date-main">रविवार, 19 अक्टूबर 2025</span>
+                    <span class="date-sub">बवक्त: ज़ुहर (दोपहर 1:00 बजे)</span>
                 </div>
-                <canvas id="scratchCanvas" width="290" height="75"></canvas>
+                <canvas id="scratchCanvas"></canvas>
             </div>
         </div>
 
-        <div class="timer-title">निकाह का काउंटडाउन</div>
+        <!-- COUNTDOWN TIMER -->
+        <div class="timer-title">⏳ निकाह में बाकी समय ⏳</div>
         <div id="timer">
             <div class="time-box"><span id="days">00</span><label>दिन</label></div>
             <div class="time-box"><span id="hours">00</span><label>घंटे</label></div>
@@ -711,286 +713,186 @@
             <div class="time-box"><span id="seconds">00</span><label>सेकंड</label></div>
         </div>
 
-        <div class="info-card">
-            <h3>: निकाह इन्शा अल्लाह :</h3>
-            <p><strong>तारीख:</strong> 11 अक्टोबर 2026 बरोज़ इतवार (रविवार)</p>
-            <p><strong>वक्त:</strong> बाद नमाज़-ए-मगरीब (शाम 7:10 बजे)</p>
-            <p><strong>इस्लामिक तारीख:</strong> 29 रब्बी-उल-आखर 1448 हि.</p>
-        </div>
-
         <!-- AL-MUNTASREEN SECTION -->
         <div class="muntasreen-card">
-            <h3>: अलमुंतज़रीन :</h3>
+            <h3>المنتظرين (منتظرین)</h3>
             <div class="muntasreen-grid">
-                <div class="muntasreen-item">शेख याकूब कासिमसाब</div>
-                <div class="muntasreen-item">शेख चाँद राजेसाब</div>
-                <div class="muntasreen-item">शेख महेताब कासिमसाब</div>
-                <div class="muntasreen-item">शेख नबी याकूबसाब</div>
-                <div class="muntasreen-item">शेख समीर अय्युबसाब</div>
-                <div class="muntasreen-item">शेख रियाज़ोद्दीन महेबुबसाब</div>
-                <div class="muntasreen-item">शेख वसीम महेबुबसाब</div>
-                <div class="muntasreen-item">शेख आफताब महेताब</div>
+                <div class="muntasreen-item">शेख अय्युब</div>
+                <div class="muntasreen-item">सय्यद सादिक</div>
+                <div class="muntasreen-item">शेख कासिम</div>
+                <div class="muntasreen-item">सय्यद इस्माईल</div>
             </div>
         </div>
 
-        <!-- KIDS SECTION -->
+        <!-- KIDS BADGES -->
         <div class="kids-container">
             <div class="kids-box">
-                <div class="kids-header">🎈 <span>बुवा की शादी में जरूर आना:</span> 🧸</div>
+                <div class="kids-header">🎈 बुआ की शादी में आपका स्वागत है 🎈</div>
                 <div class="kids-names">
-                    <span class="kid-badge">✨ अर्श</span>
-                    <span class="kid-badge">🌸 हनिया</span>
+                    <span class="kid-badge">अयान</span>
+                    <span class="kid-badge">अराफात</span>
                 </div>
             </div>
-
             <div class="kids-box kids-box-2">
-                <div class="kids-header">🌟 <span>अँटी की शादी में जरूर आना...!</span> 🍭</div>
+                <div class="kids-header">🎉 आंटी की शादी में आपका स्वागत है 🎉</div>
                 <div class="kids-names">
-                    <span class="kid-badge">👦 सोहेल</span>
-                    <span class="kid-badge">🌟 मो. मुख्तदीर</span>
-                    <span class="kid-badge">👑 नजिया</span>
-                    <span class="kid-badge">🚀 मो. फैज़</span>
-                    <span class="kid-badge">💖 कुलसुम</span>
+                    <span class="kid-badge">अमरा</span>
+                    <span class="kid-badge">अनाबिया</span>
                 </div>
             </div>
         </div>
 
-        <!-- VENUE SECTION -->
+        <!-- VENUE CARD -->
         <div class="venue-card">
-            <div class="venue-title">: मुकाम-ए-अक्द :</div>
-            <div class="venue-name">🏛️ जैतून फंक्शन हॉल</div>
-            <div class="venue-address">रिंग रोड, लातूर</div>
-            <a href="https://maps.google.com/?q=Zaitun+Function+Hall+Latur" target="_blank" class="map-btn">📍 हॉल का लोकेशन देखें</a>
+            <div class="venue-title">📍 मकाम-ए-निकाह 📍</div>
+            <div class="venue-name">जैतून फंक्शन हॉल</div>
+            <div class="venue-address">अंबाजोगाई रोड, लातूर</div>
+            <a href="https://maps.google.com/?q=Zaitun+Function+Hall+Latur" target="_blank" class="map-btn">📍 गूगल मैप देखें</a>
         </div>
 
-        <!-- SPONSORED AD CARD 1 -->
+        <!-- SPONSORED ADS -->
         <div class="ad-card">
-            <div class="ad-title">: फर्म :</div>
-            <div class="animated-shop-name">अर्श पान शॉप</div>
-            <div class="ad-address">📍 मेन बस स्टँड लातूर</div>
-            
+            <div class="ad-title">🌟 Sponsered By 🌟</div>
+            <div class="animated-shop-name">ARSH PAN SHOP</div>
             <div class="shop-items-grid">
-                <div class="shop-item">
-                    <div class="item-icon">🍃</div>
-                    <div class="item-text">मसाला पान</div>
-                </div>
-                <div class="shop-item">
-                    <div class="item-icon">🍫</div>
-                    <div class="item-text">चॉकलेट पान</div>
-                </div>
-                <div class="shop-item">
-                    <div class="item-icon">✨</div>
-                    <div class="item-text">डिस्को सुपारी</div>
-                </div>
-                <div class="shop-item">
-                    <div class="item-icon">🥤</div>
-                    <div class="item-text">कोल्ड्रिंक्स</div>
-                </div>
+                <div class="shop-item"><div class="item-icon">🍃</div><div class="item-text">स्पेशल मघई पान</div></div>
+                <div class="shop-item"><div class="item-icon">🍫</div><div class="item-text">चॉकलेट पान</div></div>
+                <div class="shop-item"><div class="item-icon">🧊</div><div class="item-text">आइस बरफ पान</div></div>
+                <div class="shop-item"><div class="item-icon">👑</div><div class="item-text">शाही मीठा पान</div></div>
             </div>
-
+            <div class="ad-address">📍 मेन बस स्टैंड के पास, लातूर</div>
             <div class="ad-btn-group">
-                <a href="tel:8999698989" class="ad-contact">📞 कॉल करें: 8999698989</a>
-                <a href="https://maps.google.com/?q=Arsh+Pan+Shop+Main+Bus+Stand+Latur" target="_blank" class="ad-location">📍 लोकेशन देखें</a>
-            </div>
-        </div>
-
-        <!-- SPONSORED AD CARD 2 -->
-        <div class="ad-card" style="border-color: #00ffcc; box-shadow: 0 0 15px rgba(0, 255, 204, 0.25);">
-            <div class="ad-title" style="color: #00ffcc;">: फर्म :</div>
-            <div class="animated-shop-name" style="background: linear-gradient(90deg, #00ffcc, #ffd700, #ff007f, #00ffcc); -webkit-background-clip: text; background-clip: text;">न्यू आय कॅफे & मल्टीसर्व्हिसेस</div>
-            
-            <div class="ad-address">📍 अंबाजोगाई रोड, लातूर</div>
-
-            <div class="ad-btn-group">
-                <a href="tel:9595229594" class="ad-contact" style="background: #00ffcc; color: #000;">📞 मो. : 9595229594</a>
-                <a href="https://maps.app.goo.gl/npAhi8GUix7cxjwx7?g_st=ac" target="_blank" class="ad-location" style="border-color: #00ffcc; color: #00ffcc;">📍 लोकेशन देखें</a>
+                <a href="tel:9876543210" class="ad-contact">📞 संपर्क करें</a>
+                <a href="https://maps.google.com/?q=Main+Bus+Stand+Latur" target="_blank" class="ad-location">📍 लोकेशन देखें</a>
             </div>
         </div>
 
     </div>
 
     <script>
-        // OPEN INVITATION ANIMATION & AUDIO
-        function openInvitation() {
-            const overlay = document.getElementById('introOverlay');
-            overlay.classList.add('fade-out');
+        // BACKGROUND PARTICLES
+        const canvas = document.getElementById('bgCanvas');
+        const ctx = canvas.getContext('2d');
+        let width = canvas.width = window.innerWidth;
+        let height = canvas.height = window.innerHeight;
 
-            // Play Music automatically after click
-            const music = document.getElementById('bgMusic');
-            music.play().then(() => {
-                document.getElementById('musicIcon').textContent = '⏸';
-                document.getElementById('musicText').textContent = 'बंद करें';
-            }).catch(err => console.log(err));
+        window.addEventListener('resize', () => {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+        });
 
-            // Celebration Confetti
-            if (window.confetti) {
-                confetti({
-                    particleCount: 120,
-                    spread: 80,
-                    origin: { y: 0.5 }
-                });
-            }
+        const particles = [];
+        for (let i = 0; i < 40; i++) {
+            particles.push({
+                x: Math.random() * width,
+                y: Math.random() * height,
+                radius: Math.random() * 2 + 1,
+                speedY: Math.random() * 0.5 + 0.2,
+                opacity: Math.random() * 0.5 + 0.3
+            });
         }
 
-        // SCRATCH CARD
-        const sCanvas = document.getElementById('scratchCanvas');
-        const sCtx = sCanvas.getContext('2d');
-        const scratchBox = document.getElementById('scratchBox');
-        const scratchInstruction = document.getElementById('scratchInstruction');
-        let isScratching = false;
-        let isAlreadyRevealed = false;
+        function animateBg() {
+            ctx.clearRect(0, 0, width, height);
+            particles.forEach(p => {
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(255, 215, 0, ${p.opacity})`;
+                ctx.fill();
+                p.y -= p.speedY;
+                if (p.y < 0) p.y = height;
+            });
+            requestAnimationFrame(animateBg);
+        }
+        animateBg();
 
-        function initScratchCard() {
-            sCtx.fillStyle = '#d4af37';
-            sCtx.fillRect(0, 0, sCanvas.width, sCanvas.height);
-            sCtx.fillStyle = '#000000';
-            sCtx.font = 'bold 14px "Tiro Devanagari Hindi", sans-serif';
+        // SCRATCH CANVAS SETUP
+        const scratchCanvas = document.getElementById('scratchCanvas');
+        const sCtx = scratchCanvas.getContext('2d');
+        const container = scratchCanvas.parentElement;
+
+        function initScratch() {
+            scratchCanvas.width = container.offsetWidth;
+            scratchCanvas.height = container.offsetHeight;
+            sCtx.fillStyle = '#c0c0c0';
+            sCtx.fillRect(0, 0, scratchCanvas.width, scratchCanvas.height);
+            sCtx.fillStyle = '#333';
+            sCtx.font = 'bold 14px Poppins, sans-serif';
             sCtx.textAlign = 'center';
-            sCtx.fillText('यहाँ स्क्रैच करें ✍️', sCanvas.width / 2, sCanvas.height / 2 + 5);
+            sCtx.fillText('यहाँ स्क्रैच करें', scratchCanvas.width / 2, scratchCanvas.height / 2 + 5);
         }
-        initScratchCard();
+        initScratch();
 
-        function checkScratchPercentage() {
-            if (isAlreadyRevealed) return;
-            const imageData = sCtx.getImageData(0, 0, sCanvas.width, sCanvas.height);
-            const pixels = imageData.data;
-            let transparentPixels = 0;
-
-            for (let i = 3; i < pixels.length; i += 4) {
-                if (pixels[i] === 0) transparentPixels++;
-            }
-
-            const percentage = (transparentPixels / (pixels.length / 4)) * 100;
-            if (percentage > 40) {
-                isAlreadyRevealed = true;
-                sCanvas.style.opacity = '0';
-                setTimeout(() => sCanvas.style.display = 'none', 500);
-                scratchBox.classList.add('revealed');
-                scratchInstruction.innerHTML = '🎉 तारीख दिख गई! 🎉';
-                if (window.confetti) {
-                    confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 } });
-                }
-            }
-        }
-
+        let isDrawing = false;
         function scratch(e) {
-            if (!isScratching || isAlreadyRevealed) return;
-            const rect = sCanvas.getBoundingClientRect();
-            const x = (e.clientX || (e.touches && e.touches[0].clientX)) - rect.left;
-            const y = (e.clientY || (e.touches && e.touches[0].clientY)) - rect.top;
+            if (!isDrawing) return;
+            const rect = scratchCanvas.getBoundingClientRect();
+            const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+            const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+            const x = clientX - rect.left;
+            const y = clientY - rect.top;
 
             sCtx.globalCompositeOperation = 'destination-out';
             sCtx.beginPath();
-            sCtx.arc(x, y, 18, 0, Math.PI * 2);
+            sCtx.arc(x, y, 20, 0, Math.PI * 2);
             sCtx.fill();
-
-            checkScratchPercentage();
         }
 
-        sCanvas.addEventListener('mousedown', (e) => { isScratching = true; scratch(e); });
-        sCanvas.addEventListener('mousemove', scratch);
-        sCanvas.addEventListener('mouseup', () => { isScratching = false; });
-        sCanvas.addEventListener('mouseleave', () => { isScratching = false; });
+        scratchCanvas.addEventListener('mousedown', () => isDrawing = true);
+        scratchCanvas.addEventListener('mouseup', () => isDrawing = false);
+        scratchCanvas.addEventListener('mousemove', scratch);
 
-        sCanvas.addEventListener('touchstart', (e) => { isScratching = true; scratch(e); });
-        sCanvas.addEventListener('touchmove', scratch);
-        sCanvas.addEventListener('touchend', () => { isScratching = false; });
+        scratchCanvas.addEventListener('touchstart', () => isDrawing = true);
+        scratchCanvas.addEventListener('touchend', () => isDrawing = false);
+        scratchCanvas.addEventListener('touchmove', scratch);
 
-        // CANVAS PARTICLES
-        const canvas = document.getElementById('bgCanvas');
-        const ctx = canvas.getContext('2d');
-        let particlesArray = [];
+        // MUSIC CONTROL
+        const bgMusic = document.getElementById('bgMusic');
+        const musicToggle = document.getElementById('musicToggle');
+        const musicIcon = document.getElementById('musicIcon');
+        const musicText = document.getElementById('musicText');
 
-        function resizeCanvas() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        }
-        window.addEventListener('resize', resizeCanvas);
-        resizeCanvas();
-
-        class Particle {
-            constructor() {
-                this.x = Math.random() * canvas.width;
-                this.y = Math.random() * canvas.height;
-                this.size = Math.random() * 3 + 1;
-                this.speedY = Math.random() * 0.8 + 0.2;
-                this.speedX = (Math.random() - 0.5) * 0.4;
-                this.opacity = Math.random() * 0.7 + 0.3;
-                this.color = `rgba(255, 215, 0, ${this.opacity})`;
-            }
-            update() {
-                this.y -= this.speedY;
-                this.x += this.speedX;
-                if (this.y < 0) {
-                    this.y = canvas.height;
-                    this.x = Math.random() * canvas.width;
-                }
-            }
-            draw() {
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                ctx.fillStyle = this.color;
-                ctx.fill();
-            }
-        }
-
-        function initParticles() {
-            particlesArray = [];
-            for (let i = 0; i < 50; i++) {
-                particlesArray.push(new Particle());
-            }
-        }
-        initParticles();
-
-        function animateParticles() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            for (let i = 0; i < particlesArray.length; i++) {
-                particlesArray[i].update();
-                particlesArray[i].draw();
-            }
-            requestAnimationFrame(animateParticles);
-        }
-        animateParticles();
-
-        // MUSIC TOGGLE
-        const music = document.getElementById('bgMusic');
-        const musicBtn = document.getElementById('musicToggle');
-        musicBtn.addEventListener('click', () => {
-            if (music.paused) {
-                music.play().then(() => {
-                    document.getElementById('musicIcon').textContent = '⏸';
-                    document.getElementById('musicText').textContent = 'बंद करें';
-                });
+        function toggleMusic() {
+            if (bgMusic.paused) {
+                bgMusic.play();
+                musicIcon.innerText = '🔊';
+                musicText.innerText = 'म्यूजिक बंद करें';
             } else {
-                music.pause();
-                document.getElementById('musicIcon').textContent = '🎵';
-                document.getElementById('musicText').textContent = 'म्यूजिक बजाएं';
+                bgMusic.pause();
+                musicIcon.innerText = '🎵';
+                musicText.innerText = 'म्यूजिक बजाएं';
             }
-        });
-
-        // COUNTDOWN
-        const targetDate = new Date(2026, 9, 11, 19, 10, 0).getTime();
-        function updateTimer() {
-            const now = new Date().getTime();
-            const difference = targetDate - now;
-
-            if (difference <= 0) {
-                document.getElementById("timer").innerHTML = "<b style='color:#ffd700;'>शुभ घड़ी आ गई है!</b>";
-                return;
-            }
-
-            const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((difference % (1000 * 60)) / 1000);
-
-            document.getElementById("days").innerText = days < 10 ? "0" + days : days;
-            document.getElementById("hours").innerText = hours < 10 ? "0" + hours : hours;
-            document.getElementById("minutes").innerText = minutes < 10 ? "0" + minutes : minutes;
-            document.getElementById("seconds").innerText = seconds < 10 ? "0" + seconds : seconds;
         }
-        updateTimer();
-        setInterval(updateTimer, 1000);
+        musicToggle.addEventListener('click', toggleMusic);
+
+        // INTRO OPEN BUTTON
+        function openInvitation() {
+            document.getElementById('introOverlay').classList.add('fade-out');
+            bgMusic.play().then(() => {
+                musicIcon.innerText = '🔊';
+                musicText.innerText = 'म्यूजिक बंद करें';
+            }).catch(() => {});
+            
+            confetti({
+                particleCount: 100,
+                spread: 70,
+                origin: { y: 0.6 }
+            });
+        }
+
+        // COUNTDOWN TIMER LOGIC
+        const eventDate = new Date('October 19, 2025 13:00:00').getTime();
+        setInterval(() => {
+            const now = new Date().getTime();
+            const diff = eventDate - now;
+
+            if (diff > 0) {
+                document.getElementById('days').innerText = Math.floor(diff / (1000 * 60 * 60 * 24));
+                document.getElementById('hours').innerText = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                document.getElementById('minutes').innerText = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                document.getElementById('seconds').innerText = Math.floor((diff % (1000 * 60)) / 1000);
+            }
+        }, 1000);
     </script>
 </body>
 </html>
